@@ -1,0 +1,42 @@
+@font-face {
+    font-family: "Playfair Display";
+    font-weight: 400;
+    src: url("../public/fonts/PlayfairDisplay-Regular.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Playfair Display";
+    font-weight: 500;
+    src: url("../public/fonts/PlayfairDisplay-Medium.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Playfair Display";
+    font-weight: 700;
+    src: url("../public/fonts/PlayfairDisplay-Bold.ttf");
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: "Source Serif4";
+    font-weight: 400;
+    src: url("../public/fonts/SourceSerif4_18pt-Regular.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Source Serif4";
+    font-weight: 500;
+    src: url("../public/fonts/SourceSerif4_18pt-Medium.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Source Serif4";
+    font-weight: 700;
+    src: url("../public/fonts/SourceSerif4_18pt-Bold.ttf");
+    font-display: swap;
+}

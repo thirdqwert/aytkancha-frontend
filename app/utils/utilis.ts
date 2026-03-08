@@ -1,0 +1,163 @@
+import { ErrorRes, ICategory, INews, INewsObject, IReelsObject, IToken, IVidsObject } from "./types";
+// // добавть обработчкие ошибок
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch news")
+//   }
+export const getAdmin = async () => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API}/login/`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username: process.env.ADMIN_LOGIN,
+                password: process.env.ADMIN_PASSWORD,
+            }),
+        });
+        const data: IToken = await res.json();
+        return data.access;
+    } catch (error) {
+        throw error;
+    }
+};
+
+export const getCategories = async (fetchParams: any | undefined): Promise<ICategory[]> => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API}/categories/`, fetchParams);
+        const categories = await res.json();
+        return categories;
+    } catch (error) {
+        throw error;
+    }
+};
+
+export const getNews = async (
+    pageCount: number | undefined = 1,
+    categoryBy: string | undefined,
+    subcategoryBy: string | undefined,
+    fetchParams: any | undefined,
+    searchBy: string | undefined,
+): Promise<INewsObject | any> => {
+    try {
+        const params = new URLSearchParams();
+        if (categoryBy) params.append("categoryBy", categoryBy);
+        if (categoryBy) params.append("categoryBy", categoryBy);
+        if (subcategoryBy) params.append("subcategoryBy", subcategoryBy);
+        if (searchBy) params.append("searchBy", searchBy);
+
+        const res = await fetch(
+            `${process.env.NEXT_PUBLIC_API}/news/?page=${pageCount}&${params.toString()}`,
+            fetchParams,
+        );
+
+        if (!res.ok) {
+            return res;
+        }
+
+        const news = await res.json();
+
+        return news;
+    } catch (error) {
+        throw error;
+    }
+};
+
+export const getNewsDetail = async (id: string, fetchParams: any | undefined): Promise<INews | any> => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API}/news/${id}/`, fetchParams);
+
+        if (!res.ok) {
+            return res;
+        }
+        const news = await res.json();
+
+        return news;
+    } catch (error) {
+        throw error;
+    }
+};
+
+// export const getArticles = async (pageCount: number = 1) => {
+//     const res = await fetch(`${process.env.NEXT_PUBLIC_API}/articles?page=${pageCount}`)
+//     const articles = await res.json()
+//     return articles
+// }
+
+export const getNewsAdmin = async (access: string | undefined) => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API}/news/`, {
+            method: "get",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${access}`,
+            },
+        });
+
+        if (!res.ok) {
+            return res;
+        }
+
+        const news = await res.json();
+
+        return news;
+    } catch (error) {
+        throw error;
+    }
+};
+
+// export const getArticlesAdmin = async (access: string) => {
+//     const res = await fetch(`${process.env.NEXT_PUBLIC_API}/articles/`,
+//         {
+//             method: "get",
+//             headers: {
+//                 "Content-Type": "application/json",
+//                 "Authorization": `Bearer ${access}`
+//             }
+//         }
+//     )
+//     const articles = await res.json()
+//     return articles
+// }
+
+export const getDateString = (created_at: string) => {
+    const months: { [key: string]: string } = {
+        "01": "январь",
+        "02": "февраль",
+        "03": "март",
+        "04": "апрель",
+        "05": "май",
+        "06": "июнь",
+        "07": "июль",
+        "08": "август",
+        "09": "сентябрь",
+        "10": "октябрь",
+        "11": "ноябрь",
+        "12": "декабрь",
+    };
+
+    const YMD = created_at.split("T")[0];
+    const time = created_at.split("T")[1];
+    const date = `${YMD.split("-")[2]} ${months[YMD.split("-")[1]]} ${time.split(":").slice(0, 2).join(":")}`;
+    return date;
+};
+
+export const getReels = async (fetchParams: any | undefined): Promise<IReelsObject> => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API}/reels/`, fetchParams);
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        throw error;
+    }
+};
+
+export const getVids = async (fetchParams: any | undefined): Promise<IVidsObject> => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API}/youtubevids/`, fetchParams);
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        throw error;
+    }
+};

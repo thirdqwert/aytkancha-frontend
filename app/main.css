@@ -1,0 +1,233 @@
+@import url(font.css);
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+    --breakpoint-xxl: 1440px;
+    --breakpoint-ssm: 400px;
+    --breakpoint-4xl: 1160px;
+    --breakpoint-5xl: 1255px;
+    --breakpoint-6xl: 1530px;
+    --breakpoint-7xl: 1640px;
+    --breakpoint-8xl: 1765px;
+    --color-primery: #93032e;
+    --color-secondery: #151515;
+    --color-third: #f6e8e8;
+    --color-fourth: #495057;
+    --font-SourceSerif4: "Source Serif4", sans-serif;
+    --font-PlayfairDisplay: "Playfair Display", sans-serif;
+}
+
+@layer base {
+    .tiptap h2 {
+        @apply text-xl font-bold;
+    }
+
+    .tiptap h3 {
+        @apply text-lg font-bold;
+    }
+
+    .tiptap h4 {
+        @apply text-sm font-bold;
+    }
+}
+
+body {
+    font-family: "Source Serif4";
+    font-weight: 400;
+    background: #e9e8e8;
+}
+
+.short_desc {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.long_desc {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.short_title {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+.container {
+    max-width: 1760px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #495057;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.tiptap_button {
+    border: 1px #99a1af solid;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.tiptap blockquote::before,
+.tiptap blockquote::after {
+    content: "" !important;
+    font-style: normal !important;
+}
+
+.tiptap blockquote > *::after {
+    content: "" !important;
+}
+
+.tiptap blockquote {
+    content: "" !important;
+    font-style: normal !important;
+    padding: 18px 12px;
+}
+
+.tiptap blockquote > * {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: row !important;
+    content: "" !important;
+    font-style: normal !important;
+    margin: 0px !important;
+    padding-left: 35px !important;
+}
+
+@media (max-width: 1240px) {
+    .tiptap blockquote > * {
+        padding-left: 20px !important;
+    }
+}
+
+.tiptap blockquote > *::before {
+    content: "" !important;
+    position: absolute !important;
+    width: 2px !important;
+    border-radius: 10px !important;
+    background: #295480 !important;
+    height: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.tiptap blockquote > * > * {
+    content: "" !important;
+    font-style: normal !important;
+}
+
+.tiptap .custom-audio {
+    background: #c7d0db;
+    padding: 12px;
+    border-radius: 12px;
+    max-width: 700px;
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+
+.tiptap .audio-body {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.tiptap .play-btn {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    margin-left: 10px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.tiptap .audio-header {
+    position: relative;
+    margin-left: 10px;
+    margin-bottom: 0;
+    font-weight: 600;
+    padding: 12px;
+}
+
+.tiptap .audio-header::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: -10px;
+    background: #295480;
+}
+
+.tiptap .play-btn::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: -10px;
+    background: #295480;
+}
+
+.tiptap .wave {
+    flex: 1;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    background: none;
+}
+
+@media (max-width: 640px) {
+    .tiptap .custom-audio {
+        background: #c7d0db;
+        padding: 10px;
+        border-radius: 12px;
+        max-width: 400px;
+        font-family: sans-serif;
+    }
+
+    .tiptap .audio-header {
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    .tiptap .audio-time {
+        font-size: 10px;
+    }
+}
