@@ -43,7 +43,7 @@ export default async function News() {
         return (
             <>
                 <Header />
-                <main className="py-[30px] min-h-screen">
+                <main className="py-[110px] min-h-screen">
                     <div className="container">
                         <h1 className="text-[16px] md:text-[24px] xl:text-[30px] font-bold relative flex flex-row text-[#343a40] vertical_line my-[20px] px-[20px]">
                             Все Новости
@@ -58,11 +58,8 @@ export default async function News() {
     return (
         <>
             <Header />
-            <main className="py-[30px] min-h-screen">
+            <main className="py-[110px] min-h-screen">
                 <div className="container">
-                    <h1 className="text-[16px] md:text-[24px] xl:text-[30px] font-bold relative flex flex-row text-[#343a40] vertical_line my-[20px] px-[20px]">
-                        Все Новости
-                    </h1>
                     <CardList list={news.results} />
                     <div className="pb-[30px] md:pb-[50px]" />
                     <InfiniteScroll params={{}} />

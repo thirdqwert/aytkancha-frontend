@@ -1,6 +1,4 @@
 import Image from "next/image";
-import mail from "../../public/images/email.svg";
-import phone from "../../public/images/phone.svg";
 import instagramm from "../../public/images/instagramm.svg";
 import telegram from "../../public/images/telegram.svg";
 import youtube from "../../public/images/youtube.svg";
@@ -9,60 +7,92 @@ import Link from "next/link";
 
 export default async function Footer() {
     return (
-        <footer className="bg-[#343a40] py-[30px]">
-            <div className="container">
-                <nav className="flex flex-col md:flex-row justify-between gap-[60px] border-y-[2px] border-b-[rgba(168,153,153,0.7)] border-t-white py-[20px] md:py-[30px] px-[20px] md:px-[50px]">
-                    <div className="flex flex-col gap-[20px] md:gap-[30px]">
-                        <Link href={"/"}>
-                            <h3 className="text-[30px] md:text-[36px] font-bold">
-                                <span className="text-white">RE</span>
-                                <span className="text-[#92a8e0]">NEWS</span>
-                            </h3>
+        <footer>
+            <nav className="bg-primery pt-[70px] pb-[35px]">
+                <div className="container">
+                    <div className="flex flex-row justify-between">
+                        <ul className="flex flex-col gap-[20px]">
+                            <li>
+                                <Link href={"/news/"} className="font-bold text-[32px] text-white">
+                                    Yangiliklar
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={"/news/dunyoda/"} className="font-medium text-[25px] text-white">
+                                    Dunyoda
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={"/news/ozbekistonda/"} className="font-medium text-[25px] text-white">
+                                    O&apos;zbekistonda
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={"/contacts/"} className="font-medium text-[25px] text-white">
+                                    Kontaktlar
+                                </Link>
+                            </li>
+                        </ul>
+                        <Link href={"/"} className="text-white flex flex-col">
+                            <span className="font-PlayfairDisplay font-bold text-[90px]">Aytkancha</span>
+                            <div className="w-[140px] mx-auto h-[1px] bg-white my-[10px]" />
+                            <span className="font-PlayfairDisplay text-[32px]">
+                                O&apos; zbekistonning Yangilik Portali
+                            </span>
                         </Link>
-                        <ul className="flex flex-row gap-[20px] md:gap-[50px]">
+                        <ul className="flex flex-col gap-[20px]">
                             <li>
-                                <Link className="text-[16px] md:text-[24px] text-white font-medium" href={"/"}>
-                                    Главная
+                                <Link
+                                    href={"/news/"}
+                                    className="font-bold text-[32px] text-white flex flex-row items-center gap-[40px]"
+                                >
+                                    Ijtimoiy tarmoqlar
                                 </Link>
                             </li>
                             <li>
-                                <Link className="text-[16px] md:text-[24px] text-white font-medium" href={"/news/"}>
-                                    Новости
+                                <Link
+                                    href={"/news/dunyoda/"}
+                                    className="font-medium text-[25px] text-white flex flex-row items-center gap-[40px]"
+                                >
+                                    <span>Dunyoda</span>
+                                    <Image src={telegram} alt="" />
                                 </Link>
                             </li>
                             <li>
-                                <Link className="text-[16px] md:text-[24px] text-white font-medium" href={"/contacts/"}>
-                                    Контакты
+                                <Link
+                                    href={"/news/ozbekistonda/"}
+                                    className="font-medium text-[25px] text-white flex flex-row items-center gap-[40px]"
+                                >
+                                    <span>Instagram</span>
+                                    <Image src={instagramm} alt="" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href={"/contacts/"}
+                                    className="font-medium text-[25px] text-white flex flex-row items-center gap-[40px]"
+                                >
+                                    <span>Facebook</span>
+                                    <Image src={facebook} alt="" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href={"/contacts/"}
+                                    className="font-medium text-[25px] text-white flex flex-row items-center gap-[40px]"
+                                >
+                                    <span>YouTube</span>
+                                    <Image src={youtube} alt="" />
                                 </Link>
                             </li>
                         </ul>
                     </div>
-                    <div className="flex flex-col gap-[25px] mx-auto text-[14px] font-medium">
-                        <div className="flex flex-row items-center gap-[10px] text-white">
-                            <Image src={mail} alt="" />
-                            <p>renews@gmail.com</p>
-                        </div>
-                        <div className="flex flex-row items-center gap-[10px] text-white">
-                            <Image src={phone} alt="" />
-                            <p>(99)666 77-45</p>
-                        </div>
-                        <div className="flex flex-row items-center gap-[10px] text-white">
-                            <p>Контакты</p>
-                            <Link href={""}>
-                                <Image src={instagramm} alt="" />
-                            </Link>
-                            <Link href={""}>
-                                <Image src={telegram} alt="" />
-                            </Link>
-                            <Link href={""}>
-                                <Image src={youtube} alt="" />
-                            </Link>
-                            <Link href={""}>
-                                <Image src={facebook} alt="" />
-                            </Link>
-                        </div>
-                    </div>
-                </nav>
+                </div>
+            </nav>
+            <div className="bg-fifth py-[16px]">
+                <div className="container">
+                    <div className="text-third text-[20px] font-bold font-Inter">© 2026 Aytkancha.uz — Barcha huquqlar himoyalangan</div>
+                </div>
             </div>
         </footer>
     );

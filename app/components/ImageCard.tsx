@@ -22,7 +22,7 @@ export default function ImageCard({ item }: IProps) {
                     className="absolute inset-0 h-full w-full"
                     style={{
                         background:
-                            "linear-gradient(180deg,rgba(255, 255, 255, 0) 44%, rgba(0, 0, 0, 0.44) 57%, rgba(0, 0, 0, 0.75) 78%);",
+                            "linear-gradient(180deg,rgba(255, 255, 255, 0) 44%, rgba(0, 0, 0, 0.44) 57%, rgba(0, 0, 0, 0.75) 78%)",
                     }}
                 />
                 <div className="absolute bottom-[10px] px-[40px] flex flex-col gap-[10px]">

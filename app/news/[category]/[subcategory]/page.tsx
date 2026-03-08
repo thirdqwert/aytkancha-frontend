@@ -56,18 +56,10 @@ export default async function NewsSubcategory({ params }: IProps) {
         return (
             <>
                 <Header />
-                <main className="py-[30px] min-h-screen">
-                    <div className="max-w-[1760px] w-full mx-auto px-[15px] flex flex-col lg:flex-row gap-[32px]">
-                        <CatSub
-                            categories={categories}
-                            params={{
-                                categoryBy: category,
-                                subcategoryBy: subcategory,
-                            }}
-                        />
-                        <div className="flex flex-col">
-                            <div>Данные не найдены</div>
-                        </div>
+                <CatSub categories={categories} params={{ categoryBy: category, subcategoryBy: subcategory }} />
+                <main className="py-[110px] min-h-screen">
+                    <div className="container">
+                        <div>Данные не найдены</div>
                     </div>
                 </main>
                 <Footer />
@@ -76,25 +68,17 @@ export default async function NewsSubcategory({ params }: IProps) {
     return (
         <>
             <Header />
-            <main className="py-[30px] min-h-screen">
-                <div className="max-w-[1760px] w-full mx-auto px-[15px] flex flex-col lg:flex-row gap-[32px]">
-                    <CatSub
-                        categories={categories}
+            <CatSub categories={categories} params={{ categoryBy: category, subcategoryBy: subcategory }} />
+            <main className="py-[110px] min-h-screen">
+                <div className="container">
+                    <CardList list={news.results} />
+                    <div className="pb-[30px] md:pb-[50px]" />
+                    <InfiniteScroll
                         params={{
-                            categoryBy: category,
-                            subcategoryBy: subcategory,
+                            category: category,
+                            subcategory: subcategory,
                         }}
                     />
-                    <div className="flex flex-col">
-                        <CardList list={news.results} />
-                        <div className="pb-[30px] md:pb-[50px]" />
-                        <InfiniteScroll
-                            params={{
-                                category: category,
-                                subcategory: subcategory,
-                            }}
-                        />
-                    </div>
                 </div>
             </main>
             <Footer />

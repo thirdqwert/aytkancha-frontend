@@ -1,12 +1,9 @@
 import { Metadata } from "next";
 import { INews } from "./utils/types";
-import { getDateString, getNewsAdmin } from "./utils/utilis";
-import Link from "next/link";
+import { getNewsAdmin } from "./utils/utilis";
 import CardList from "./components/CardList";
 import HeadingLine from "./components/ui/HeadingLine";
 import Card from "./components/Card";
-import Image from "next/image";
-import SwiperList from "./components/SwiperList";
 import ReelsSwiper from "./components/ReelsSwiper";
 import VidsSwiper from "./components/VidsSwiper";
 import Header from "./components/Header";
@@ -22,9 +19,8 @@ export default async function Home() {
 
     const hot_news = data && data.slice(0, 6);
     const news = data && data.slice(0, 8);
-    const culture_news = data && data.filter((item) => item.category == "Культура").slice(0, 8);
-    const sport_news = data && data.filter((item) => item.category == "Спорт").slice(0, 8);
-    const popular_news = data && data.sort((a, b) => b.views - a.views).slice(0, 3);
+    const culture_news = data && data.filter((item) => item.category == "Madaniyat").slice(0, 8);
+    const sport_news = data && data.filter((item) => item.category == "Sport").slice(0, 8);
 
     return (
         <>
@@ -61,12 +57,20 @@ export default async function Home() {
                             </div>
                             <div className="8xl:w-1/2">
                                 <div className="grid grid-cols-[repeat(auto-fill,minmax(410px,1fr))] grid-rows-[auto] gap-y-[76px] gap-x-[30px]">
-                                    {data.slice(2, 8).map((item) => (
-                                        <Card item={item} key={item.id}/>
+                                    {sport_news.slice(2, 8).map((item) => (
+                                        <Card item={item} key={item.id} />
                                     ))}
                                 </div>
                                 {/* <CardList list={sport_news.slice(2, 8)} /> */}
                             </div>
+                        </div>
+                    </div>
+                </section>
+                <section className="pt-[70px] ">
+                    <div className="container">
+                        <HeadingLine title="Video" link="" />
+                        <div className="pt-[30px]">
+                            <VidsSwiper />
                         </div>
                     </div>
                 </section>
@@ -87,14 +91,22 @@ export default async function Home() {
                         </div>
                     </div>
                 </section>
-                <section className="pt-[115px]">
+                <section className="pt-[80px]">
+                    <div className="container">
+                        <HeadingLine title="Reels" link="" />
+                        <div className="pt-[30px]">
+                            <ReelsSwiper />
+                        </div>
+                    </div>
+                </section>
+                <section className="pt-[90px]">
                     <div className="container">
                         <HeadingLine title="yangiliklar" link="yangiliklar" />
                         <div className="pt-[30px]">{news && <CardList list={news} />}</div>
                     </div>
                 </section>
             </main>
-            {/* <Footer /> */}
+            <Footer />
         </>
     );
 }

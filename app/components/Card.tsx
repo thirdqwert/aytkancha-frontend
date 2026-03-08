@@ -15,7 +15,7 @@ export default function Card({ item }: IProps) {
                     unoptimized={process.env.NEXT_PUBLIC_DEV === "dev"}
                     width={0}
                     height={0}
-                    className="w-full object-cover rounded-[10px]"
+                    className="w-full h-[300px] object-cover rounded-[10px]"
                     src={item.preview}
                     alt={item.short_title}
                 />

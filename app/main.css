@@ -14,8 +14,10 @@
     --color-secondery: #151515;
     --color-third: #f6e8e8;
     --color-fourth: #495057;
+    --color-fifth: #71020e;
     --font-SourceSerif4: "Source Serif4", sans-serif;
     --font-PlayfairDisplay: "Playfair Display", sans-serif;
+    --font-Inter: "Inter", sans-serif;
 }
 
 @layer base {
@@ -87,7 +89,10 @@ body {
         transform: rotate(360deg);
     }
 }
-
+.active_subcategory {
+    background: white;
+    color: #71020e;
+}
 .tiptap_button {
     border: 1px #99a1af solid;
     padding: 5px 10px;

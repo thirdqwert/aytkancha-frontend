@@ -122,18 +122,18 @@ export const getNewsAdmin = async (access: string | undefined) => {
 
 export const getDateString = (created_at: string) => {
     const months: { [key: string]: string } = {
-        "01": "январь",
-        "02": "февраль",
-        "03": "март",
-        "04": "апрель",
-        "05": "май",
-        "06": "июнь",
-        "07": "июль",
-        "08": "август",
-        "09": "сентябрь",
-        "10": "октябрь",
-        "11": "ноябрь",
-        "12": "декабрь",
+        "01": "yanvar",
+        "02": "fevral",
+        "03": "mart",
+        "04": "aprel",
+        "05": "may",
+        "06": "iyun",
+        "07": "iyul",
+        "08": "avgust",
+        "09": "sentyabr",
+        "10": "oktyabr",
+        "11": "noyabr",
+        "12": "dekabr",
     };
 
     const YMD = created_at.split("T")[0];

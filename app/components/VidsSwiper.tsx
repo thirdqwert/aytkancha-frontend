@@ -1,12 +1,12 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
 import { getDateString, getVids } from "../utils/utilis";
 import { IVidsObject } from "../utils/types";
 import Image from "next/image";
-import swipperArrow from "../../public/images/swipperArrow.svg";
+import swipperArrow from "../../public/images/rightArrow.svg";
 import play from "../../public/images/play.svg";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -30,10 +30,10 @@ export default function VidsSwiper() {
 
     return vids ? (
         <div className="relative">
-            <button className="prev_vids hidden md:block absolute z-10 -left-[0] top-[40%] -translate-y-1/2 cursor-pointer">
+            <button className="prev_vids hidden md:block absolute z-10 -left-[0] top-[40%] rotate-180 -translate-y-1/2 cursor-pointer">
                 <Image src={swipperArrow} alt="" />
             </button>
-            <button className="next_vids hidden md:block absolute z-10 -right-[0] rotate-180 top-[40%] -translate-y-1/2 cursor-pointer">
+            <button className="next_vids hidden md:block absolute z-10 -right-[0] top-[40%] -translate-y-1/2 cursor-pointer">
                 <Image src={swipperArrow} alt="" />
             </button>
             <div className="px-[0] md:px-[50px]">
@@ -47,10 +47,10 @@ export default function VidsSwiper() {
                     }}
                     modules={[Navigation]}
                     breakpoints={{
-                        320: { slidesPerView: 1.05, spaceBetween: 10 },
-                        640: { slidesPerView: 1.2, spaceBetween: 10 },
-                        1024: { slidesPerView: 2, spaceBetween: 10 },
-                        1536: { slidesPerView: 3, spaceBetween: 30 },
+                        320: { slidesPerView: 1.05, spaceBetween: 15 },
+                        640: { slidesPerView: 1.2, spaceBetween: 15 },
+                        1024: { slidesPerView: 3, spaceBetween: 15 },
+                        1536: { slidesPerView: 4, spaceBetween: 30 },
                     }}
                 >
                     {vids.results.map((vid) => (
@@ -68,7 +68,7 @@ export default function VidsSwiper() {
                                         height={0}
                                         src={vid.image}
                                         alt={vid.title}
-                                        className="w-full h-[200px] md:h-[230px] object-cover"
+                                        className="w-full object-cover h-[250px]"
                                     />
                                     <Image
                                         src={play}
@@ -76,12 +76,10 @@ export default function VidsSwiper() {
                                         className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2"
                                     />
                                 </div>
-                                <h3 className="text-white text-[14px] md:text-[19px] font-bold short_desc">
-                                    {vid.title}
-                                </h3>
+                                <h3 className="font-bold text-[20px] text-secondery short_title">{vid.title}</h3>
                                 <time
                                     dateTime={vid.created_at.split("T")[0]}
-                                    className="text-white text-[13px] md:text-[19px] font-medium"
+                                    className="font-bold text-[24px] text-secondery"
                                 >
                                     {getDateString(vid.created_at)}
                                 </time>
@@ -92,7 +90,7 @@ export default function VidsSwiper() {
             </div>
         </div>
     ) : (
-        <div className="flex flex-row items-center justify-center h-full w-full">
+        <div className="flex flex-row items-center justify-center h-[360px] w-full">
             <Loader />
         </div>
     );

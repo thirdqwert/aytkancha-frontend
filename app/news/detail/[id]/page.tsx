@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import BackButton from "@/app/components/BackButton";
 import HeadingLine from "@/app/components/ui/HeadingLine";
-import HorizontalCardList from "@/app/components/HorizontalCardList";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import DetailContent from "../components/DetailContent";
@@ -110,7 +109,7 @@ export default async function NewsDetail({ params }: IProps) {
 
     return (
         <>
-            <script
+            {/* <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify(jsonLd),
@@ -156,7 +155,7 @@ export default async function NewsDetail({ params }: IProps) {
                     <HorizontalCardList list={footer_news.results.slice(0, 3)} />
                 </div>
             </main>
-            <Footer />
+            <Footer /> */}
         </>
     );
 }

@@ -9,7 +9,7 @@ interface IProps {
 
 export default function HeadingLine({ link, title }: IProps) {
     return (
-        <Link href={link} className="flex flex-row items-center justify-between border-b border-b-primery">
+        <Link href={`/news/${link}`} className="flex flex-row items-center justify-between border-b border-b-primery">
             <h2 className="font-medium text-[30px] bg-primery text-white py-[12px] px-[20px] rounded-tl-[15px] rounded-tr-[15px]">
                 {title}
             </h2>

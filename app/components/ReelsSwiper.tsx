@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { getReels } from "../utils/utilis";
 import { IReelsObject } from "../utils/types";
 import Image from "next/image";
-import swipperArrow from "../../public/images/swipperArrow.svg";
+import swipperArrow from "../../public/images/rightArrow.svg";
 import play from "../../public/images/play.svg";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -29,10 +29,10 @@ export default function ReelsSwiper() {
 
     return reels ? (
         <div className="relative">
-            <button className="prev_reels hidden md:block absolute z-10 -left-[0] top-1/2 -translate-y-1/2 cursor-pointer">
+            <button className="prev_reels hidden md:block absolute z-10 -left-[0] top-1/2 rotate-180 -translate-y-1/2 cursor-pointer">
                 <Image src={swipperArrow} alt="" />
             </button>
-            <button className="next_reels hidden md:block absolute z-10 -right-[0] rotate-180 top-1/2 -translate-y-1/2 cursor-pointer">
+            <button className="next_reels hidden md:block absolute z-10 -right-[0] top-1/2 -translate-y-1/2 cursor-pointer">
                 <Image src={swipperArrow} alt="" />
             </button>
             <div className="px-[0] md:px-[50px]">
@@ -56,7 +56,7 @@ export default function ReelsSwiper() {
                         <SwiperSlide key={reel.id}>
                             <a
                                 href={reel.content}
-                                className="relative block h-[500px] rounded-[10px] overflow-hidden"
+                                className="relative block h-[700px] rounded-[10px] overflow-hidden"
                                 target="_blank"
                             >
                                 <Image
@@ -79,7 +79,7 @@ export default function ReelsSwiper() {
             </div>
         </div>
     ) : (
-        <div className="flex flex-row items-center justify-center min-h-full w-full">
+        <div className="flex flex-row items-center justify-center h-[700px] w-full">
             <Loader />
         </div>
     );
