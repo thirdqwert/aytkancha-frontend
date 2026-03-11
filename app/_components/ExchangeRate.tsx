@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { IExchange } from "../utils/types";
+import { IExchange } from "../_utils/types";
 import Image from "next/image";
 import redDown from "../../public/images/redDown.svg";
 import greenTop from "../../public/images/greenTop.svg";
@@ -39,9 +39,7 @@ export default function ExchangeRate() {
                         US
                     </span>
                     <div className="bg-third flex flex-row px-[15px] pt-[10px] pb-[7px] items-center gap-[20px]">
-                        <span className="block font-medium text-[32px] text-secondery">
-                            {uzbUsd ? uzbUsd.Rate : 0}
-                        </span>
+                        <span className="block font-medium text-[32px] text-secondery">{uzbUsd ? uzbUsd.Rate : 0}</span>
                         <Image
                             className="object-contain h-[24px] w-[18px]"
                             src={uzbUsd && uzbUsd.Diff[0] == "-" ? redDown : greenTop}

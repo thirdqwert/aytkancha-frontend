@@ -1,16 +1,16 @@
 import { Metadata } from "next";
-import { INews } from "./utils/types";
-import { getNewsAdmin } from "./utils/utilis";
-import CardList from "./components/CardList";
-import HeadingLine from "./components/ui/HeadingLine";
-import Card from "./components/Card";
-import ReelsSwiper from "./components/ReelsSwiper";
-import VidsSwiper from "./components/VidsSwiper";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import BigCard from "./components/BigCard";
-import HorizontalCard from "./components/HorizontalCard";
-import ImageCard from "./components/ImageCard";
+import { INews } from "./_utils/types";
+import { getNewsAdmin } from "./_utils/utilis";
+import CardList from "./_components/CardList";
+import HeadingLine from "./_components/ui/HeadingLine";
+import Card from "./_components/Card";
+import ReelsSwiper from "./_components/ReelsSwiper";
+import VidsSwiper from "./_components/VidsSwiper";
+import BigCard from "./_components/BigCard";
+import HorizontalCard from "./_components/HorizontalCard";
+import ImageCard from "./_components/ImageCard";
+import Header from "./_components/Header";
+import Footer from "./_components/Footer";
 
 export const revalidate = 180;
 

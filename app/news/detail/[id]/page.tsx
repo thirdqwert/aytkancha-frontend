@@ -1,13 +1,13 @@
-import { getDateString, getNews, getNewsDetail } from "@/app/utils/utilis";
+import { getDateString, getNews, getNewsDetail } from "@/app/_utils/utilis";
 import Image from "next/image";
 import Link from "next/link";
-import BackButton from "@/app/components/BackButton";
-import HeadingLine from "@/app/components/ui/HeadingLine";
-import Header from "@/app/components/Header";
-import Footer from "@/app/components/Footer";
-import DetailContent from "../components/DetailContent";
+import BackButton from "@/app/_components/BackButton";
+import HeadingLine from "@/app/_components/ui/HeadingLine";
+import DetailContent from "../_components/DetailContent";
 import { Metadata } from "next";
-import { INews } from "@/app/utils/types";
+import { INews } from "@/app/_utils/types";
+import Header from "@/app/_components/Header";
+import Footer from "@/app/_components/Footer";
 
 interface IProps {
     params: {
@@ -102,21 +102,19 @@ export default async function NewsDetail({ params }: IProps) {
     if ("statusText" in news)
         return (
             <>
-                <Header />
                 <div>Данные не найдены</div>
             </>
         );
 
     return (
         <>
-            {/* <script
+            <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify(jsonLd),
                 }}
             />
-
-            <Header />
+            {/* <Header />
             <main className="py-[30px]">
                 <div className="container">
                     <article className="pb-[70px] md:pb-[100px] xl:pb-[200px]">

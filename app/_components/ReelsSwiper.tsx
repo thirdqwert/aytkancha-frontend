@@ -3,8 +3,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
-import { getReels } from "../utils/utilis";
-import { IReelsObject } from "../utils/types";
+import { getReels } from "../_utils/utilis";
+import { IReelsObject } from "../_utils/types";
 import Image from "next/image";
 import swipperArrow from "../../public/images/rightArrow.svg";
 import play from "../../public/images/play.svg";

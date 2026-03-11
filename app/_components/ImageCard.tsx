@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { INews } from "../utils/types";
+import { INews } from "../_utils/types";
 import Image from "next/image";
-import { getDateString } from "../utils/utilis";
+import { getDateString } from "../_utils/utilis";
 
 interface IProps {
     item: INews;

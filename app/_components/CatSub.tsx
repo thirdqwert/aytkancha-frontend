@@ -1,6 +1,6 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { ICategory } from "../utils/types";
+import { ICategory } from "../_utils/types";
 import { Navigation } from "swiper/modules";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -33,7 +33,10 @@ export default function CatSub({ categories, params }: IProps) {
                                 <Link
                                     href={`/news/${currentCategory.slug}/${subcategory.slug}`}
                                     key={subcategory.id}
-                                    className={"px-[15px] py-[10px] text-[28px] font-medium text-white hover:bg-white hover:text-fifth " + (subcategoryBy == subcategory.slug ? "active_subcategory" : "")}
+                                    className={
+                                        "px-[15px] py-[10px] text-[28px] font-medium text-white hover:bg-white hover:text-fifth " +
+                                        (subcategoryBy == subcategory.slug ? "active_subcategory" : "")
+                                    }
                                 >
                                     {subcategory.title}
                                 </Link>

@@ -1,10 +1,10 @@
-import { getNews } from "../utils/utilis";
-import { INewsObject } from "../utils/types";
-import CardList from "../components/CardList";
-import InfiniteScroll from "../components/InfiniteScroll";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { getNews } from "../_utils/utilis";
+import { INewsObject } from "../_utils/types";
+import CardList from "../_components/CardList";
+import InfiniteScroll from "../_components/InfiniteScroll";
 import { Metadata } from "next";
+import Footer from "../_components/Footer";
+import Header from "../_components/Header";
 
 export const metadata: Metadata = {
     title: "Все новости Узбекистана",

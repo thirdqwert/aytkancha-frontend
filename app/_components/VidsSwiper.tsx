@@ -3,8 +3,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
-import { getDateString, getVids } from "../utils/utilis";
-import { IVidsObject } from "../utils/types";
+import { getDateString, getVids } from "../_utils/utilis";
+import { IVidsObject } from "../_utils/types";
 import Image from "next/image";
 import swipperArrow from "../../public/images/rightArrow.svg";
 import play from "../../public/images/play.svg";

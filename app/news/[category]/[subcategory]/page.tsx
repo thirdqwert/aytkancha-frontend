@@ -1,11 +1,11 @@
-import { ICategory, INewsObject } from "@/app/utils/types";
-import { getCategories, getNews } from "@/app/utils/utilis";
-import CardList from "@/app/components/CardList";
-import CatSub from "@/app/components/CatSub";
-import InfiniteScroll from "@/app/components/InfiniteScroll";
-import Header from "@/app/components/Header";
-import Footer from "@/app/components/Footer";
+import { ICategory, INewsObject } from "@/app/_utils/types";
+import { getCategories, getNews } from "@/app/_utils/utilis";
+import CardList from "@/app/_components/CardList";
+import CatSub from "@/app/_components/CatSub";
+import InfiniteScroll from "@/app/_components/InfiniteScroll";
 import { Metadata } from "next";
+import Header from "@/app/_components/Header";
+import Footer from "@/app/_components/Footer";
 
 interface IProps {
     params: {
