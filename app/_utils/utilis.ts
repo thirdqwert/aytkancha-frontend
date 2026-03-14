@@ -86,12 +86,11 @@ export const getNewsDetail = async (id: string, fetchParams: any | undefined): P
 
 export const getNewsAdmin = async () => {
     try {
-        const access = await getAdmin();
         const res = await fetch(`${process.env.NEXT_PUBLIC_API}/news/`, {
             method: "get",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${access}`,
+                Authorization: `Bearer ${process.env.TOKEN}`,
             },
         });
 
