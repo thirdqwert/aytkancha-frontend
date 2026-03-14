@@ -7,18 +7,14 @@
     --breakpoint-xxl: 1440px;
     --breakpoint-ssm: 400px;
     --breakpoint-4xl: 1160px;
-    --breakpoint-5xl: 1255px;
-    --breakpoint-6xl: 1530px;
+    --breakpoint-5xl: 1350px;
+    --breakpoint-6xl: 1450px;
     --breakpoint-7xl: 1640px;
     --breakpoint-8xl: 1765px;
-    --color-primery: #93032e;
-    --color-secondery: #151515;
-    --color-third: #f6e8e8;
+    --color-primery: #1e293b;
+    --color-secondery: #385cb7;
+    --color-third: #1f1d1d;
     --color-fourth: #495057;
-    --color-fifth: #71020e;
-    --font-SourceSerif4: "Source Serif4", sans-serif;
-    --font-PlayfairDisplay: "Playfair Display", sans-serif;
-    --font-Inter: "Inter", sans-serif;
 }
 
 @layer base {
@@ -36,7 +32,7 @@
 }
 
 body {
-    font-family: "Source Serif4";
+    font-family: "Poppins";
     font-weight: 400;
     background: #e9e8e8;
 }
@@ -92,7 +88,7 @@ body {
 }
 .active_subcategory {
     background: white;
-    color: #71020e;
+    color: #1e293b;
 }
 .tiptap_button {
     border: 1px #99a1af solid;

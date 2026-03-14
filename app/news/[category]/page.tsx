@@ -15,7 +15,7 @@ interface IProps {
 
 export async function generateMetadata({ params }: IProps): Promise<Metadata> {
     const { category } = await params;
-    const categories: ICategory[] = await getCategories({ next: { revalidate: 180 } });
+    const categories: ICategory[] = await getCategories({ next: { revalidate: 60 } });
     const currentCategory = categories.find((item) => item.slug == category);
     const categoryName = currentCategory?.title;
     return {
@@ -38,13 +38,13 @@ export async function generateMetadata({ params }: IProps): Promise<Metadata> {
     };
 }
 
-export const revalidate = 180;
+export const revalidate = 60;
 
 export default async function NewsCategory({ params }: IProps) {
     const { category } = await params;
     const [news, categories] = await Promise.all([
-        getNews(1, category, "", { next: { revalidate: 180 } }, undefined),
-        getCategories({ next: { revalidate: 180 } }),
+        getNews(1, category, "", { next: { revalidate: 60 } }, undefined),
+        getCategories({ next: { revalidate: 60 } }),
     ]);
 
     if (news.results.length == 0)
@@ -52,9 +52,8 @@ export default async function NewsCategory({ params }: IProps) {
             <>
                 <Header />
                 <CatSub categories={categories} params={{ categoryBy: category }} />
-                <main className="py-[110px] min-h-screen">
+                <main className="py-[15px] min-h-screen">
                     <div className="container">
-                        <div>Данные не найдены</div>
                     </div>
                 </main>
                 <Footer />
@@ -65,7 +64,7 @@ export default async function NewsCategory({ params }: IProps) {
         <>
             <Header />
             <CatSub categories={categories} params={{ categoryBy: category }} />
-            <main className="py-[110px] min-h-screen">
+            <main className="py-[15px] min-h-screen">
                 <div className="container">
                     <CardList list={news.results} />
                     <div className="pb-[30px] md:pb-[50px]" />

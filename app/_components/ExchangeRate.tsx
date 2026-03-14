@@ -5,6 +5,9 @@ import Image from "next/image";
 import redDown from "../../public/images/redDown.svg";
 import greenTop from "../../public/images/greenTop.svg";
 import "swiper/css";
+import { Swiper } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import { SwiperSlide } from "swiper/react";
 
 export default function ExchangeRate() {
     const [uzbUsd, setUzbUsd] = useState<IExchange | null>(null);
@@ -29,17 +32,13 @@ export default function ExchangeRate() {
 
     return (
         <>
-            {/* для маленький экранов */}
-            <div className="flex flex-row gap-[20px]">
-                <div
-                    className="flex flex-row rounded-[15px] overflow-hidden"
-                    style={{ boxShadow: "0 0 8px 5px rgba(0, 0, 0, 0.3)" }}
-                >
-                    <span className="bg-primery px-[15px] pt-[10px] pb-[7px] text-white text-[32px] font-medium">
-                        US
-                    </span>
-                    <div className="bg-third flex flex-row px-[15px] pt-[10px] pb-[7px] items-center gap-[20px]">
-                        <span className="block font-medium text-[32px] text-secondery">{uzbUsd ? uzbUsd.Rate : 0}</span>
+            <div className="flex flex-row gap-[20px] hidden xl:flex">
+                <div className="flex flex-row rounded-[15px] gap-[10px] py-[7px] px-[15px] overflow-hidden bg-white">
+                    <span className="text-[29px] font-bold text-primery">US</span>
+                    <div className="flex flex-row items-center gap-[20px]">
+                        <span className="block font-medium text-[29px] text-primery">
+                            {uzbUsd ? uzbUsd.Rate.split(".")[0] : 0}
+                        </span>
                         <Image
                             className="object-contain h-[24px] w-[18px]"
                             src={uzbUsd && uzbUsd.Diff[0] == "-" ? redDown : greenTop}
@@ -47,16 +46,11 @@ export default function ExchangeRate() {
                         />
                     </div>
                 </div>
-                <div
-                    className="flex flex-row rounded-[15px] overflow-hidden"
-                    style={{ boxShadow: "0 0 8px 5px rgba(0, 0, 0, 0.3)" }}
-                >
-                    <span className="bg-primery px-[15px] pt-[10px] pb-[7px] text-white text-[32px] font-medium">
-                        RU
-                    </span>
-                    <div className="bg-third flex flex-row px-[15px] pt-[10px] pb-[7px] items-center gap-[20px]">
-                        <span className="block font-medium text-[32px] text-secondery]">
-                            {uzbRub ? uzbRub.Rate : 0}
+                <div className="flex flex-row rounded-[15px] gap-[10px] py-[7px] px-[15px] overflow-hidden bg-white">
+                    <span className="text-[29px] font-bold text-primery">RUB</span>
+                    <div className="flex flex-row items-center gap-[20px]">
+                        <span className="block font-medium text-[29px] text-primery">
+                            {uzbRub ? uzbRub.Rate.split(".")[0] : 0}
                         </span>
                         <Image
                             className="object-contain h-[24px] w-[18px]"
@@ -65,6 +59,46 @@ export default function ExchangeRate() {
                         />
                     </div>
                 </div>
+            </div>
+            <div className="h-[53px] block xl:hidden">
+                <Swiper
+                    className="h-full w-full"
+                    direction={"vertical"}
+                    loop={true}
+                    modules={[Autoplay]}
+                    autoplay={{ delay: 3000, disableOnInteraction: false }}
+                >
+                    <SwiperSlide>
+                        <div className="flex flex-row rounded-[15px] gap-[10px] py-[7px] px-[15px] overflow-hidden bg-white">
+                            <span className="text-[29px] font-bold text-primery">US</span>
+                            <div className="flex flex-row items-center gap-[20px]">
+                                <span className="block font-medium text-[29px] text-primery">
+                                    {uzbUsd ? uzbUsd.Rate.split(".")[0] : 0}
+                                </span>
+                                <Image
+                                    className="object-contain h-[24px] w-[18px]"
+                                    src={uzbUsd && uzbUsd.Diff[0] == "-" ? redDown : greenTop}
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="flex flex-row rounded-[15px] gap-[10px] py-[7px] px-[15px] overflow-hidden bg-white">
+                            <span className="text-[29px] font-bold text-primery">RUB</span>
+                            <div className="flex flex-row items-center gap-[20px]">
+                                <span className="block font-medium text-[29px] text-primery">
+                                    {uzbRub ? uzbRub.Rate.split(".")[0] : 0}
+                                </span>
+                                <Image
+                                    className="object-contain h-[24px] w-[18px]"
+                                    src={uzbRub && uzbRub.Diff[0] == "-" ? redDown : greenTop}
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                </Swiper>
             </div>
         </>
     );

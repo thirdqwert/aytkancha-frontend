@@ -84,8 +84,9 @@ export const getNewsDetail = async (id: string, fetchParams: any | undefined): P
 //     return articles
 // }
 
-export const getNewsAdmin = async (access: string | undefined) => {
+export const getNewsAdmin = async () => {
     try {
+        const access = await getAdmin();
         const res = await fetch(`${process.env.NEXT_PUBLIC_API}/news/`, {
             method: "get",
             headers: {
@@ -121,21 +122,20 @@ export const getNewsAdmin = async (access: string | undefined) => {
 // }
 
 export const getDateString = (created_at: string) => {
-    const months: { [key: string]: string } = {
-        "01": "январь",
-        "02": "февраль",
-        "03": "март",
-        "04": "апрель",
-        "05": "май",
-        "06": "июнь",
-        "07": "июль",
-        "08": "август",
-        "09": "сентябрь",
-        "10": "октябрь",
-        "11": "ноябрь",
-        "12": "декабрь",
+    const months: any = {
+        "01": "yanvar",
+        "02": "fevral",
+        "03": "mart",
+        "04": "aprel",
+        "05": "may",
+        "06": "iyun",
+        "07": "iyul",
+        "08": "avgust",
+        "09": "sentabr",
+        "10": "oktabr",
+        "11": "noyabr",
+        "12": "dekabr",
     };
-
     const YMD = created_at.split("T")[0];
     const time = created_at.split("T")[1];
     const date = `${YMD.split("-")[2]} ${months[YMD.split("-")[1]]} ${time.split(":").slice(0, 2).join(":")}`;

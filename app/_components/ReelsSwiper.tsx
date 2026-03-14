@@ -70,7 +70,7 @@ export default function ReelsSwiper() {
                                 <Image
                                     src={play}
                                     alt=""
-                                    className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2"
+                                    className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 h-[60px] w-[60px]"
                                 />
                             </a>
                         </SwiperSlide>

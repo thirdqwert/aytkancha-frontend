@@ -25,7 +25,7 @@ export default function CatSub({ categories, params }: IProps) {
 
     return (
         <>
-            <div className="bg-fifth">
+            <div className="bg-[#101d31]">
                 <div className="container">
                     <div className="flex flex-row w-full flex-wrap flex-row flex-wrap items-start">
                         {currentCategory &&
@@ -34,7 +34,7 @@ export default function CatSub({ categories, params }: IProps) {
                                     href={`/news/${currentCategory.slug}/${subcategory.slug}`}
                                     key={subcategory.id}
                                     className={
-                                        "px-[15px] py-[10px] text-[28px] font-medium text-white hover:bg-white hover:text-fifth " +
+                                        "px-[15px] py-[15px] text-[28px] font-medium text-white hover:bg-white hover:text-primery " +
                                         (subcategoryBy == subcategory.slug ? "active_subcategory" : "")
                                     }
                                 >

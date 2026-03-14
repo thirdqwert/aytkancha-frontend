@@ -6,7 +6,7 @@ export default async function Contacts() {
     return (
         <>
             <Header />
-            <main className="py-[50px] min-h-screen">
+            <main className="py-[50px] min-h-[calc(100vh-328px)]">
                 <div className="container">
                     <div className="flex flex-row justify-center gap-[90px]">
                         <div

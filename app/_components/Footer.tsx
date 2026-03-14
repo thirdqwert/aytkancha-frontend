@@ -34,17 +34,15 @@ export default async function Footer() {
                             </li>
                         </ul>
                         <Link href={"/"} className="text-white flex flex-col">
-                            <span className="font-PlayfairDisplay font-bold text-[90px]">Aytkancha</span>
+                            <span className=" font-bold text-[90px]">Aytkancha</span>
                             <div className="w-[140px] mx-auto h-[1px] bg-white my-[10px]" />
-                            <span className="font-PlayfairDisplay text-[32px]">
-                                O&apos; zbekistonning Yangilik Portali
-                            </span>
+                            <span className=" text-[32px]">O&apos; zbekistonning Yangilik Portali</span>
                         </Link>
                         <ul className="flex flex-col gap-[20px]">
                             <li>
                                 <Link
                                     href={"/news/"}
-                                    className="font-bold text-[32px] text-white flex flex-row items-center gap-[40px]"
+                                    className="font-bold text-[32px] text-white flex flex-row items-center gap-[20px]"
                                 >
                                     Ijtimoiy tarmoqlar
                                 </Link>
@@ -52,46 +50,48 @@ export default async function Footer() {
                             <li>
                                 <Link
                                     href={"/news/dunyoda/"}
-                                    className="font-medium text-[25px] text-white flex flex-row items-center gap-[40px]"
+                                    className="font-medium text-[25px] text-white flex flex-row items-center gap-[20px]"
                                 >
-                                    <span>Dunyoda</span>
                                     <Image src={telegram} alt="" />
+                                    <span>Dunyoda</span>
                                 </Link>
                             </li>
                             <li>
                                 <Link
                                     href={"/news/ozbekistonda/"}
-                                    className="font-medium text-[25px] text-white flex flex-row items-center gap-[40px]"
+                                    className="font-medium text-[25px] text-white flex flex-row items-center gap-[20px]"
                                 >
-                                    <span>Instagram</span>
                                     <Image src={instagramm} alt="" />
+                                    <span>Instagram</span>
                                 </Link>
                             </li>
                             <li>
                                 <Link
                                     href={"/contacts/"}
-                                    className="font-medium text-[25px] text-white flex flex-row items-center gap-[40px]"
+                                    className="font-medium text-[25px] text-white flex flex-row items-center gap-[20px]"
                                 >
-                                    <span>Facebook</span>
                                     <Image src={facebook} alt="" />
+                                    <span>Facebook</span>
                                 </Link>
                             </li>
                             <li>
                                 <Link
                                     href={"/contacts/"}
-                                    className="font-medium text-[25px] text-white flex flex-row items-center gap-[40px]"
+                                    className="font-medium text-[25px] text-white flex flex-row items-center gap-[20px]"
                                 >
-                                    <span>YouTube</span>
                                     <Image src={youtube} alt="" />
+                                    <span>YouTube</span>
                                 </Link>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-            <div className="bg-fifth py-[16px]">
+            <div className="bg-[#213658] py-[16px]">
                 <div className="container">
-                    <div className="text-third text-[20px] font-bold font-Inter">© 2026 Aytkancha.uz — Barcha huquqlar himoyalangan</div>
+                    <div className="text-white text-[20px] font-bold ">
+                        © 2026 Aytkancha.uz — Barcha huquqlar himoyalangan
+                    </div>
                 </div>
             </div>
         </footer>

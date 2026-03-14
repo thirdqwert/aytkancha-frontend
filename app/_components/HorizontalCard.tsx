@@ -17,14 +17,14 @@ export default function HorizontalCard({ item, isDesc = true }: IProps) {
                     height={0}
                     src={item.preview}
                     alt={item.short_title}
-                    className="h-full w-[240px] object-cover rounded-[10px]"
+                    className="h-[170px] w-[300px] object-cover "
                 />
-                <div className="flex flex-col justify-between gap-[10px]">
-                    <h3 className="text-[26px] text-secondery font-bold short_title">{item.title}</h3>
-                    {isDesc && <p className="text-[20px] font-medium text-fourth short_desc">{item.desc}</p>}
+                <div className="flex flex-col justify-between gap-[15px]">
+                    <h3 className="text-[18px] text-third font-bold short_title">{item.title}</h3>
+                    {isDesc && <p className="text-[18px] font-medium text-fourth long_desc">{item.desc}</p>}
                     <div className="flex flex-row justify-between">
-                        <h2 className="text-[25px] font-bold text-primery">{item.category}</h2>
-                        <time dateTime={item.created_at.split("T")[0]} className="text-[25px] font-bold text-secondery">
+                        <h2 className="text-[16px] font-bold text-secondery">{item.category}</h2>
+                        <time dateTime={item.created_at.split("T")[0]} className="text-[16px] font-bold text-third">
                             {getDateString(item.created_at)}
                         </time>
                     </div>
