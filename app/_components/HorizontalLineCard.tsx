@@ -16,7 +16,7 @@ export default function HorizontalLineCard({ item }: IProps) {
                     height={0}
                     src={item.preview}
                     alt={item.short_title}
-                    className="w-full min-h-[185px] md:h-[140px] md:w-[220px] object-cover"
+                    className="w-full min-h-[185px] md:min-h-0 md:h-[140px] md:w-[220px] object-cover"
                 />
                 <div className="flex flex-col gap-[15px] w-full">
                     <h3 className="text-[13px] lg:text-[25px] text-third font-bold short_title">{item.title}</h3>
@@ -25,7 +25,10 @@ export default function HorizontalLineCard({ item }: IProps) {
                     </p>
                     <div className="flex flex-row justify-between mt-auto">
                         <h2 className="text-[13px] lg:text-[20px] font-bold text-secondery">{item.category}</h2>
-                        <time dateTime={item.created_at.split("T")[0]} className="text-[13px] lg:text-[20px] font-bold text-third">
+                        <time
+                            dateTime={item.created_at.split("T")[0]}
+                            className="text-[13px] lg:text-[20px] font-bold text-third"
+                        >
                             {getDateString(item.created_at)}
                         </time>
                     </div>

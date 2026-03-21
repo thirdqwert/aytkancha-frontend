@@ -95,12 +95,12 @@ export default function TipTap({ setContent, content }: IProps) {
                 heading: {
                     levels: [2],
                     HTMLAttributes: {
-                        class: "text-[13px] md:text-[22px] lg:text-[32px] text-[#212529] font-bold",
+                        class: "text-[15px] md:text-[20px] lg:text-[25px] 2xl:text-[32px] text-third font-bold",
                     },
                 },
                 paragraph: {
                     HTMLAttributes: {
-                        class: "text-[12px] md:text-[20px] lg:text-[25px] text-[#495057] font-medium",
+                        class: "text-[15px] md:text-[20px] 2xl:text-[30px] text-fourth font-medium",
                     },
                 },
                 link: {
@@ -111,7 +111,7 @@ export default function TipTap({ setContent, content }: IProps) {
                 },
                 blockquote: {
                     HTMLAttributes: {
-                        class: "w-full rounded-[10px] py-[15px] bg-[rgba(41,84,128,0.2)] ",
+                        class: "w-full *:!text-white rounded-[10px] py-[15px] bg-[rgba(30,41,59,0.9)] ",
                     },
                 },
             }),
@@ -122,7 +122,7 @@ export default function TipTap({ setContent, content }: IProps) {
             }),
             Image.configure({
                 HTMLAttributes: {
-                    class: "w-full max-h-[600px] h-full rounded-[20px] object-cover",
+                    class: "w-full min-h-[200px] max-h-[300px] md:max-h-none md:h-[300px] lg:h-[500px] 2xl:h-[560px] rounded-[10px] object-cover",
                 },
             }),
             Youtube.configure({

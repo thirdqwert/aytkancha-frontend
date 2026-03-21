@@ -122,7 +122,7 @@ body {
     position: absolute !important;
     width: 2px !important;
     border-radius: 10px !important;
-    background: #93032e !important;
+    background: white !important;
     height: 100%;
     left: 0;
     top: 0;
@@ -135,13 +135,13 @@ body {
 }
 
 .tiptap .custom-audio {
-    background: rgba(147, 3, 46, 0.2);
+    background: rgba(30, 41, 59, 0.9);
     padding: 12px;
     border-radius: 12px;
     max-width: 700px;
     margin: 0 auto;
     font-family: sans-serif;
-    color: #151515;
+    color: white;
 }
 
 .tiptap .audio-body {
@@ -149,6 +149,7 @@ body {
     align-items: center;
     gap: 16px;
 }
+
 
 .tiptap .play-btn {
     position: relative;
@@ -171,16 +172,16 @@ body {
     margin-bottom: 0;
     font-weight: 600;
     padding: 12px;
-    color: #151515;
+    color: white;
 }
 
 .tiptap .audio-time {
-    color: white;
+    color: #333d4d;
     font-weight: 700;
     font-size: 20px;
     border-radius: 20px;
     padding: 8px 10px;
-    background: #93032e;
+    background: #e9e8e8;
 }
 
 .tiptap .audio-header::before {
@@ -191,7 +192,7 @@ body {
     top: 0;
     bottom: 0;
     left: -10px;
-    background: #93032e;
+    background: white;
 }
 
 .tiptap .play-btn::before {
@@ -202,7 +203,7 @@ body {
     top: 0;
     bottom: 0;
     left: -10px;
-    background: #93032e;
+    background: white;
 }
 
 .tiptap .wave {

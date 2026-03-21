@@ -21,7 +21,7 @@ export default async function Contacts() {
                             <h2 className="font-medium text-[20px] md:text-[32px] text-white bg-primery py-[15px] px-[30px] bg-primery">
                                 Aloqa
                             </h2>
-                            <div className="px-[30px] pt-[30px] pb-[40px]">
+                            <div className="px-[15px] md:px-[30px] pt-[30px] pb-[40px]">
                                 <div className="flex flex-col gap-[5px] pb-[20px]">
                                     <span className="block text-[17px] md:text-[24px] font-medium text-[#818a93]">
                                         Elektron pochta
@@ -78,7 +78,7 @@ export default async function Contacts() {
                             <h2 className="font-medium text-[20px] md:text-[32px] text-white bg-primery py-[15px] px-[30px] bg-primery">
                                 Ijtimoiy tarmoqlar
                             </h2>
-                            <div className="px-[30px] py-[20px] flex flex-col gap-[15px]">
+                            <div className="px-[15px] md:px-[30px] py-[20px] flex flex-col gap-[15px]">
                                 <div className="flex flex-row gap-[20px]">
                                     <Image src={telegramIcon} alt="" />
                                     <Link href={""} className="block text-[#295480] text-[19px] font-medium">
