@@ -3,12 +3,8 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-    --breakpoint-mmd: 950px;
-    --breakpoint-xxl: 1440px;
-    --breakpoint-ssm: 400px;
-    --breakpoint-4xl: 1160px;
-    --breakpoint-5xl: 1350px;
-    --breakpoint-6xl: 1450px;
+    --breakpoint-5xl: 850px;
+    --breakpoint-6xl: 950px;
     --breakpoint-7xl: 1640px;
     --breakpoint-8xl: 1765px;
     --color-primery: #1e293b;
@@ -121,12 +117,6 @@ body {
     padding-left: 35px !important;
 }
 
-@media (max-width: 1240px) {
-    .tiptap blockquote > * {
-        padding-left: 20px !important;
-    }
-}
-
 .tiptap blockquote > *::before {
     content: "" !important;
     position: absolute !important;
@@ -224,6 +214,30 @@ body {
     overflow: hidden;
     flex-wrap: nowrap;
     background: none;
+}
+
+@media (max-width: 1546px) {
+    .container {
+        padding: 0px 45px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 0px 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0px 15px;
+    }
+}
+
+@media (max-width: 1240px) {
+    .tiptap blockquote > * {
+        padding-left: 20px !important;
+    }
 }
 
 @media (max-width: 640px) {

@@ -160,3 +160,139 @@ export const getVids = async (fetchParams: any | undefined): Promise<IVidsObject
         throw error;
     }
 };
+
+export const categories = [
+    {
+        id: 24,
+        title: "Dunyoda",
+        slug: "dunyoda",
+        subcategories: [
+            {
+                id: 34,
+                title: "Geosiyosat",
+                category: 24,
+                slug: "geosiyosat",
+            },
+            {
+                id: 35,
+                title: "Mojarolar va urushlar",
+                category: 24,
+                slug: "mojarolar-va-urushlar",
+            },
+        ],
+    },
+    {
+        id: 25,
+        title: "O'zbekistonda",
+        slug: "ozbekistonda",
+        subcategories: [
+            {
+                id: 36,
+                title: "Iqtisodiyot va moliya",
+                category: 25,
+                slug: "iqtisodiyot-va-moliya",
+            },
+            {
+                id: 37,
+                title: "Jamiyat",
+                category: 25,
+                slug: "jamiyat",
+            },
+        ],
+    },
+    {
+        id: 26,
+        title: "Voqealar",
+        slug: "voqealar",
+        subcategories: [
+            {
+                id: 38,
+                title: "Jinoyat yilnomalari",
+                category: 26,
+                slug: "jinoyat-yilnomalari",
+            },
+            {
+                id: 39,
+                title: "Yong'inlar va baxtsiz hodisalar",
+                category: 26,
+                slug: "yonginlar-va-baxtsiz-hodisalar",
+            },
+        ],
+    },
+    {
+        id: 27,
+        title: "Sport",
+        slug: "sport",
+        subcategories: [
+            {
+                id: 40,
+                title: "Futbol",
+                category: 27,
+                slug: "futbol",
+            },
+            {
+                id: 41,
+                title: "Olimpiya sport turlari",
+                category: 27,
+                slug: "olimpiya-sport-turlari",
+            },
+        ],
+    },
+    {
+        id: 28,
+        title: "Iqtisodiyot",
+        slug: "iqtisodiyot",
+        subcategories: [
+            {
+                id: 42,
+                title: "Biznes",
+                category: 28,
+                slug: "biznes",
+            },
+            {
+                id: 43,
+                title: "Kichik biznes",
+                category: 28,
+                slug: "kichik-biznes",
+            },
+        ],
+    },
+    {
+        id: 29,
+        title: "Madaniyat",
+        slug: "madaniyat",
+        subcategories: [
+            {
+                id: 44,
+                title: "Sayohatlar",
+                category: 29,
+                slug: "sayohatlar",
+            },
+            {
+                id: 45,
+                title: "Sharhlar",
+                category: 29,
+                slug: "sharhlar",
+            },
+        ],
+    },
+    {
+        id: 30,
+        title: "Texnologiya",
+        slug: "texnologiya",
+        subcategories: [
+            {
+                id: 46,
+                title: "Texnologiyalar",
+                category: 30,
+                slug: "texnologiyalar",
+            },
+            {
+                id: 47,
+                title: "IT va Internet",
+                category: 30,
+                slug: "it-va-internet",
+            },
+        ],
+    },
+];

@@ -1,7 +1,7 @@
 "use client";
 
 import Loader from "@/app/_components/Loader";
-import { ICategory, INews } from "@/app/_utils/types";
+import { ICategory } from "@/app/_utils/types";
 import { getCategories, getNewsDetail } from "@/app/_utils/utilis";
 import { getCookie } from "cookies-next";
 import dynamic from "next/dynamic";

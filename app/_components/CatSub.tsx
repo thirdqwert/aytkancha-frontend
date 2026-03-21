@@ -3,21 +3,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { ICategory } from "../_utils/types";
 import { Navigation } from "swiper/modules";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
-import arrowDown from "../../public/images/Arrow.svg";
 import "swiper/css";
 import "swiper/css/navigation";
+import { categories } from "../_utils/utilis";
 
 interface IProps {
-    categories: ICategory[];
     params: {
         categoryBy?: string | undefined;
         subcategoryBy?: string | undefined;
     };
 }
 
-export default function CatSub({ categories, params }: IProps) {
+export default function CatSub({ params }: IProps) {
     const { categoryBy, subcategoryBy } = params;
     const pathname = usePathname();
     const news = pathname.split("/")[1];
@@ -25,8 +23,8 @@ export default function CatSub({ categories, params }: IProps) {
 
     return (
         <>
-            <div className="bg-[#101d31]">
-                <div className="container">
+            <div className="bg-[#101d31] hidden md:block">
+                <div className="max-w-[1890px] px-[15px] mx-auto">
                     <div className="flex flex-row w-full flex-wrap flex-row flex-wrap items-start">
                         {currentCategory &&
                             currentCategory.subcategories.map((subcategory) => (
@@ -34,7 +32,7 @@ export default function CatSub({ categories, params }: IProps) {
                                     href={`/news/${currentCategory.slug}/${subcategory.slug}`}
                                     key={subcategory.id}
                                     className={
-                                        "px-[15px] py-[15px] text-[28px] font-medium text-white hover:bg-white hover:text-primery " +
+                                        "px-[15px] md:py-[10px] 2xl:py-[15px] md:text-[20px] 2xl:text-[29px] font-medium text-white hover:bg-white hover:text-primery " +
                                         (subcategoryBy == subcategory.slug ? "active_subcategory" : "")
                                     }
                                 >
@@ -44,17 +42,11 @@ export default function CatSub({ categories, params }: IProps) {
                     </div>
                 </div>
             </div>
-            <div className="lg:hidden">
-                <h1 className="font-bold text-[24px] pl-[7px] md:text-[18px] text-[#222] relative vertical_line_blue mb-[23px]">
+            <div className="block md:hidden pt-[20px] px-[15px]">
+                {/* <h1 className="font-bold text-[24px] pl-[7px] md:text-[18px] text-[#222] relative vertical_line_blue mb-[23px]">
                     {currentCategory && currentCategory.title}
-                </h1>
-                <div className="relative md:px-[50px] block lg:hidden">
-                    <button className="prev hidden md:block py-[5px] px-[10px] md:px-[20px] absolute z-10 left-0 rotate-180 top-1/2 -translate-y-1/2 cursor-pointer">
-                        <Image src={arrowDown} alt="" />
-                    </button>
-                    <button className="next hidden md:block py-[5px] px-[10px] md:px-[20px] absolute z-10 right-0 top-1/2 -translate-y-1/2 cursor-pointer">
-                        <Image src={arrowDown} alt="" className="text-black" />
-                    </button>
+                </h1> */}
+                <div className="relative block md:hidden">
                     <Swiper
                         className="w-full h-full"
                         slidesPerView={4}
@@ -65,8 +57,7 @@ export default function CatSub({ categories, params }: IProps) {
                         }}
                         modules={[Navigation]}
                         breakpoints={{
-                            0: { slidesPerView: 1.2, spaceBetween: 10 },
-                            640: { slidesPerView: 2.2, spaceBetween: 20 },
+                            0: { slidesPerView: 1.5, spaceBetween: 10 },
                         }}
                     >
                         <SwiperSlide>

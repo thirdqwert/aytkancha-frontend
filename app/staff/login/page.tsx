@@ -30,7 +30,7 @@ export default function Login() {
     };
 
     return (
-        <div className="w-full h-screen flex flex-row items-center justify-center bg-[#8ecee0]">
+        <div className="w-full h-screen flex flex-row items-center justify-center bg-[#343a40] font-mono">
             <form
                 onSubmit={(e) => handleSubmit(e)}
                 className="flex flex-col gap-[20px] max-w-[500px] w-full bg-white py-[50px] px-[10px]"

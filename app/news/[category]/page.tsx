@@ -1,9 +1,8 @@
-import { getCategories, getNews } from "@/app/_utils/utilis";
+import { categories, getNews } from "@/app/_utils/utilis";
 import CardList from "@/app/_components/CardList";
 import CatSub from "@/app/_components/CatSub";
 import InfiniteScroll from "@/app/_components/InfiniteScroll";
 import { Metadata } from "next";
-import { ICategory } from "@/app/_utils/types";
 import Header from "@/app/_components/Header";
 import Footer from "@/app/_components/Footer";
 
@@ -15,7 +14,6 @@ interface IProps {
 
 export async function generateMetadata({ params }: IProps): Promise<Metadata> {
     const { category } = await params;
-    const categories: ICategory[] = await getCategories({ next: { revalidate: 60 } });
     const currentCategory = categories.find((item) => item.slug == category);
     const categoryName = currentCategory?.title;
     return {
@@ -42,19 +40,15 @@ export const revalidate = 60;
 
 export default async function NewsCategory({ params }: IProps) {
     const { category } = await params;
-    const [news, categories] = await Promise.all([
-        getNews(1, category, "", { next: { revalidate: 60 } }, undefined),
-        getCategories({ next: { revalidate: 60 } }),
-    ]);
+    const news = await getNews(1, category, "", { next: { revalidate: 60 } }, undefined);
 
     if (news.results.length == 0)
         return (
             <>
                 <Header />
-                <CatSub categories={categories} params={{ categoryBy: category }} />
+                <CatSub params={{ categoryBy: category }} />
                 <main className="py-[15px] min-h-screen">
-                    <div className="container">
-                    </div>
+                    <div className="container"></div>
                 </main>
                 <Footer />
             </>
@@ -63,7 +57,7 @@ export default async function NewsCategory({ params }: IProps) {
     return (
         <>
             <Header />
-            <CatSub categories={categories} params={{ categoryBy: category }} />
+            <CatSub params={{ categoryBy: category }} />
             <main className="py-[15px] min-h-screen">
                 <div className="container">
                     <CardList list={news.results} />

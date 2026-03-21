@@ -29,13 +29,13 @@ export default function ReelsSwiper() {
 
     return reels ? (
         <div className="relative">
-            <button className="prev_reels hidden md:block absolute z-10 -left-[0] top-1/2 rotate-180 -translate-y-1/2 cursor-pointer">
+            <button className="prev_reels hidden 2xl:block absolute z-10 -left-[0] top-1/2 rotate-180 -translate-y-1/2 cursor-pointer">
                 <Image src={swipperArrow} alt="" />
             </button>
-            <button className="next_reels hidden md:block absolute z-10 -right-[0] top-1/2 -translate-y-1/2 cursor-pointer">
+            <button className="next_reels hidden 2xl:block absolute z-10 -right-[0] top-1/2 -translate-y-1/2 cursor-pointer">
                 <Image src={swipperArrow} alt="" />
             </button>
-            <div className="px-[0] md:px-[50px]">
+            <div className="px-[0] lg:px-[50px]">
                 <Swiper
                     loop={true}
                     spaceBetween={30}
@@ -45,9 +45,9 @@ export default function ReelsSwiper() {
                     }}
                     breakpoints={{
                         320: { slidesPerView: 1.05, spaceBetween: 10 },
-                        640: { slidesPerView: 1.2, spaceBetween: 10 },
-                        768: { slidesPerView: 2, spaceBetween: 10 },
-                        1024: { slidesPerView: 3, spaceBetween: 10 },
+                        768: { slidesPerView: 2.05, spaceBetween: 10 },
+                        1024: { slidesPerView: 2.15, spaceBetween: 10 },
+                        1280: { slidesPerView: 3.15, spaceBetween: 10 },
                         1536: { slidesPerView: 4, spaceBetween: 30 },
                     }}
                     modules={[Navigation]}
@@ -56,8 +56,9 @@ export default function ReelsSwiper() {
                         <SwiperSlide key={reel.id}>
                             <a
                                 href={reel.content}
-                                className="relative block h-[700px] rounded-[10px] overflow-hidden"
+                                className="relative block h-[500px] lg:h-[700px] rounded-[10px] overflow-hidden"
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 <Image
                                     unoptimized={process.env.NEXT_PUBLIC_DEV === "dev"}
@@ -70,7 +71,7 @@ export default function ReelsSwiper() {
                                 <Image
                                     src={play}
                                     alt=""
-                                    className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 h-[60px] w-[60px]"
+                                    className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 md:h-[50px] md:w-[50px] lg:h-[30px] lg:w-[30px] lg:h-[60px] lg:w-[60px]"
                                 />
                             </a>
                         </SwiperSlide>
@@ -79,7 +80,7 @@ export default function ReelsSwiper() {
             </div>
         </div>
     ) : (
-        <div className="flex flex-row items-center justify-center h-[700px] w-full">
+        <div className="flex flex-row items-center justify-center h-[500px] lg:h-[700px] w-full">
             <Loader />
         </div>
     );
