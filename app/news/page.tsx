@@ -7,25 +7,25 @@ import Footer from "../_components/Footer";
 import Header from "../_components/Header";
 
 export const metadata: Metadata = {
-    title: "Все новости Узбекистана",
+    title: "O'zbekistonning barcha yangiliklari",
 
     description:
-        "Читайте все последние новости Узбекистана: политика, спорт, культура и экономика. Обновляется каждый день.",
+        "O'zbekistonning so'nggi yangiliklarini o'qing: siyosat, sport, madaniyat va iqtisodiyot. Har kuni yangilanib turadi.",
 
     openGraph: {
-        title: "Все новости — Renews",
-        description: "Читайте все последние новости Узбекистана.",
+        title: "Barcha yangiliklar — Aytkancha",
+        description: "O'zbekistonning so'nggi yangiliklarini o'qing.",
         url: "/news",
-        siteName: "Renews",
+        siteName: "Aytkancha",
         images: [
             {
                 url: "/images/og-main.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Все новости — Renews",
+                alt: "Barcha yangiliklar — Aytkancha",
             },
         ],
-        locale: "ru_RU",
+        locale: "uz_UZ",
         type: "website",
     },
 
@@ -43,8 +43,7 @@ export default async function News() {
         return (
             <>
                 <Header />
-                <main className="py-[110px] min-h-screen">
-                </main>
+                <main className="py-[110px] min-h-screen"></main>
                 <Footer />
             </>
         );

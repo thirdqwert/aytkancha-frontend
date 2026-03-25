@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: IProps): Promise<Metadata> {
 
     if ("statusText" in news) {
         return {
-            title: "Новость не найдена",
+            title: "Yangilik topilmadi",
         };
     }
 
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: IProps): Promise<Metadata> {
             title: news.title,
             description: news.desc,
             url: `/news/detail/${id}`,
-            siteName: "Renews",
+            siteName: "Aytkancha",
             images: [
                 {
                     url: news.preview,
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: IProps): Promise<Metadata> {
                     alt: news.short_title,
                 },
             ],
-            locale: "ru_RU",
+            locale: "uz_UZ",
             type: "article",
             publishedTime: news.created_at,
             section: news.category,

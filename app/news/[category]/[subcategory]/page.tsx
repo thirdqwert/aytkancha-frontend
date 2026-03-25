@@ -21,16 +21,16 @@ export async function generateMetadata({ params }: IProps): Promise<Metadata> {
         currentCategory && currentCategory.subcategories.find((item) => item.slug == subcategory);
     const subcategoryName = currentSubcategory?.title;
     return {
-        title: `${subcategoryName} — Новости Узбекистана`,
-        description: `Читайте последние новости раздела "${subcategoryName}" на Renews. Актуальные события Узбекистана и мира.`,
+        title: `${subcategoryName} — O'zbekiston yangiliklari`,
+        description: `"${subcategoryName}" bo'limining so'nggi yangiliklarini Aytkancha'da o'qing. O'zbekiston va dunyo dolzarb voqealari.`,
 
         openGraph: {
-            title: `${subcategoryName} — Renews`,
-            description: `Последние новости раздела "${subcategoryName}".`,
+            title: `${subcategoryName} — Aytkancha`,
+            description: `"${subcategoryName}" bo'limining so'nggi yangiliklari.`,
             url: `/news/${currentSubcategory?.slug}`,
-            siteName: "Renews",
+            siteName: "Aytkancha",
             images: [{ url: "/images/og-main.jpg" }],
-            locale: "ru_RU",
+            locale: "uz_UZ",
             type: "website",
         },
 

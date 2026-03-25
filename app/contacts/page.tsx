@@ -6,6 +6,36 @@ import telegramIcon from "../../public/images/telegramBlack.svg";
 import instagramBlack from "../../public/images/instagramBlack.svg";
 import facebookBlack from "../../public/images/facebookBlack.svg";
 import youtubeBlack from "../../public/images/youtubeBlack.svg";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    metadataBase: new URL("https://aytkancha.uz"),
+    title: {
+        template: "%s | Aytkancha",
+        default: "Aytkancha — O'zbekiston va dunyo yangiliklari",
+    },
+    description: "Aytkancha — O'zbekistonning dolzarb yangiliklari: siyosat, sport, iqtisodiyot, texnologiya va madaniyat.",
+
+    openGraph: {
+        siteName: "Aytkancha",
+        locale: "uz_UZ",
+        type: "website",
+        images: [{ url: "/images/og-main.jpg", width: 1200, height: 630, alt: "Aytkancha" }],
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        images: ["/images/og-main.jpg"],
+    },
+
+    alternates: {
+        canonical: "https://aytkancha.uz",
+    },
+
+    verification: {
+        google: "ВАШ_КОД",
+    },
+};
 
 export default async function Contacts() {
     return (

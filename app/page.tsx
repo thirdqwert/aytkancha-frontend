@@ -14,6 +14,33 @@ import VidsList from "./_components/VidsList";
 import Card from "./_components/Card";
 import HorizontalLineCard from "./_components/HorizontalLineCard";
 
+export const metadata: Metadata = {
+    title: "Bosh sahifa — O'zbekistonning so'nggi yangiliklari",
+    description:
+        "Aytkancha — O'zbekistonning so'nggi yangilikларини o'qing: siyosat, sport, madaniyat, iqtisodiyot. Dolzarb yangiliklar va haftaning ommabop mavzulari.",
+
+    openGraph: {
+        title: "Aytkancha — O'zbekiston yangiliklari",
+        description: "Dolzarb yangiliklar, siyosat, sport va O'zbekiston madaniyati.",
+        url: "/",
+        siteName: "Aytkancha",
+        images: [
+            {
+                url: "/images/og-main.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Aytkancha — O'zbekiston yangiliklari",
+            },
+        ],
+        locale: "uz_UZ",
+        type: "website",
+    },
+
+    alternates: {
+        canonical: "/",
+    },
+};
+
 export const revalidate = 60;
 
 export default async function Home() {

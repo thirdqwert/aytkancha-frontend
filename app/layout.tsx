@@ -3,19 +3,20 @@ import "./main.css";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://renews.uz"),
+    metadataBase: new URL("https://aytkancha.uz"),
     title: {
-        template: "%s | Renews",
-        default: "Renews — Новости Узбекистана и мира",
+        template: "%s | Aytkancha",
+        default: "Aytkancha — O'zbekiston va dunyo yangiliklari",
     },
-    description: "Renews — актуальные новости Узбекистана: политика, спорт, экономика, технологии и культура.",
+    description:
+        "Aytkancha — O'zbekistonning dolzarb yangiliklari: siyosat, sport, iqtisodiyot, texnologiya va madaniyat.",
 
     alternates: {
-        canonical: "https://renews.uz",
+        canonical: "https://aytkancha.uz",
     },
 
     verification: {
-        google: "ВАШ_КОД_ОТ_GOOGLE_SEARCH_CONSOLE",
+        google: "ВАШ_КОД",
     },
 };
 
