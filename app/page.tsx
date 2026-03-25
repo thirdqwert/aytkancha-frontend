@@ -47,7 +47,7 @@ export default async function Home() {
     const data: INews[] = await getNewsAdmin();
 
     const hot_news = data && data.slice(0, 11);
-    const technology_news = data && data.filter((item) => item.category == "Texnologiya").slice(0, 4);
+    const technology_news = data && data.filter((item) => item.category == "Fan").slice(0, 4);
     const sport_news = data && data.filter((item) => item.category == "Sport").slice(0, 5);
     const culture_news = data && data.filter((item) => item.category == "Madaniyat").slice(0, 10);
     const country_news = data && data.filter((item) => item.category == "O'zbekistonda").slice(0, 4);
@@ -427,9 +427,10 @@ export default async function Home() {
                                 </div>
                             </div>
                             <div className="7xl:max-w-[630px] w-full">
-                                <h2 className="bg-[#1e293b] p-[15px] md:p-[20px] relative">
-                                    <span className="md:text-[20px] lg:text-[26px] font-bold text-white z-3 relative">Ommabop yangiliklar</span>
-                                    <div className="block 7xl:hidden absolute h-full inset-0 bg-[#1e293b] w-[2000px] left-[-100px]"/>
+                                <h2 className="bg-[#1e293b] p-[15px] md:p-[20px]">
+                                    <span className="md:text-[20px] lg:text-[26px] font-bold text-white">
+                                        Ommabop yangiliklar
+                                    </span>
                                 </h2>
                                 <div className="pt-[30px] flex flex-col gap-[30px] 2xl:gap-[60px]">
                                     {popular_news.map((item) => (

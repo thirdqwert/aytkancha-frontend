@@ -51,7 +51,7 @@ export default async function NewsSubcategory({ params }: IProps) {
             <>
                 <Header />
                 <CatSub params={{ categoryBy: category, subcategoryBy: subcategory }} />
-                <main className="py-[15px] min-h-screen">
+                <main className="py-[35px] min-h-screen">
                     <div className="container"></div>
                 </main>
                 <Footer />
@@ -61,7 +61,7 @@ export default async function NewsSubcategory({ params }: IProps) {
         <>
             <Header />
             <CatSub params={{ categoryBy: category, subcategoryBy: subcategory }} />
-            <main className="py-[15px] min-h-screen">
+            <main className="py-[35px] min-h-screen">
                 <div className="container">
                     <CardList list={news.results} />
                     <div className="pb-[30px] md:pb-[50px]" />

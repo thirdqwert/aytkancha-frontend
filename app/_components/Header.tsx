@@ -119,10 +119,10 @@ export default function Header() {
                                                 onMouseLeave={() => setMoreCategoriesIsOpen(false)}
                                             >
                                                 <Link
-                                                    href="/news/texnologiya"
+                                                    href="/news/fan"
                                                     className="md:text-[20px] 2xl:text-[24px] font-medium text-white py-[10px] px-[10px] hover:bg-white hover:text-primery"
                                                 >
-                                                    Texnologiya
+                                                    Fan
                                                 </Link>
                                                 <Link
                                                     href="/news/madaniyat"

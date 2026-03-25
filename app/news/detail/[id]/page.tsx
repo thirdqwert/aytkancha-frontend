@@ -115,7 +115,7 @@ export default async function NewsDetail({ params }: IProps) {
                 }}
             />
             <Header />
-            <main className="py-[30px] overflow-hidden">
+            <main className="py-[30px] ">
                 <div className="container">
                     <div className="flex flex-col 7xl:flex-row gap-[30px]">
                         <article className="pb-[70px] md:pb-[100px] xl:pb-[200px] w-full 7xl:max-w-[1070px]">
@@ -149,12 +149,11 @@ export default async function NewsDetail({ params }: IProps) {
                             <br />
                             <DetailContent content={news.content} />
                         </article>
-                        <div className="7xl:max-w-[630px] w-full">
-                            <h2 className="bg-[#1e293b] p-[15px] md:p-[20px] relative">
-                                <span className="md:text-[20px] lg:text-[26px] font-bold text-white z-3 relative">
+                        <div className="7xl:max-w-[630px] w-full sticky h-full top-[20px]">
+                            <h2 className="bg-[#1e293b] p-[15px] md:p-[20px]">
+                                <span className="md:text-[20px] lg:text-[26px] font-bold text-white">
                                     yangiliklar
                                 </span>
-                                <div className="block 7xl:hidden absolute h-full inset-0 bg-[#1e293b] w-[2000px] left-[-100px]" />
                             </h2>
                             <div className="pt-[30px] flex flex-col gap-[30px] 2xl:gap-[60px]">
                                 {popular_news_list &&
