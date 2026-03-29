@@ -100,7 +100,7 @@ export default function TipTap({ setContent, content }: IProps) {
                 },
                 paragraph: {
                     HTMLAttributes: {
-                        class: "text-[15px] md:text-[20px] 2xl:text-[30px] text-fourth font-medium",
+                        class: "text-[15px] md:text-[20px] 2xl:text-[30px] leading-[200%] text-fourth font-medium",
                     },
                 },
                 link: {

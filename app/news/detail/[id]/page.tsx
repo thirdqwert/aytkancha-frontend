@@ -81,12 +81,12 @@ export default async function NewsDetail({ params }: IProps) {
         dateModified: news.created_at,
         author: {
             "@type": "Organization",
-            name: "Renews",
+            name: "Aytkancha",
             url: process.env.NEXT_PUBLIC_SITE_URL,
         },
         publisher: {
             "@type": "Organization",
-            name: "Renews",
+            name: "Aytkancha",
             url: process.env.NEXT_PUBLIC_SITE_URL,
             logo: {
                 "@type": "ImageObject",
@@ -95,7 +95,7 @@ export default async function NewsDetail({ params }: IProps) {
         },
         mainEntityOfPage: {
             "@type": "WebPage",
-            "@id": `https://renews.uz/news/detail/${id}`,
+            "@id": `https://aytkancha.uz/news/detail/${id}`,
         },
     };
 

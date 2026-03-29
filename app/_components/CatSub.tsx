@@ -1,10 +1,8 @@
 "use client";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 import "swiper/css";
 import "swiper/css/navigation";
 import { categories } from "../_utils/utilis";
-import { useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 
 interface IProps {
@@ -16,12 +14,9 @@ interface IProps {
 
 export default function CatSub({ params }: IProps) {
     const { categoryBy, subcategoryBy } = params;
-    const pathname = usePathname();
-    const news = pathname.split("/")[1];
     const currentCategory = categoryBy && categories.find((category) => category.slug == categoryBy);
-    const scrollRef = useRef<HTMLDivElement>(null);
 
-    const [emblaRef] = useEmblaCarousel({ dragFree: true, axis: "x", watchDrag: true });
+    const [emblaRef] = useEmblaCarousel({ dragFree: true, watchFocus: true });
 
     return (
         <>
@@ -92,9 +87,9 @@ export default function CatSub({ params }: IProps) {
                 </div>
             </div> */}
 
-            <div ref={emblaRef} className="overflow-hidden bg-[#101d31]">
-                <div className="max-w-[1890px] px-[15px] mx-auto">
-                    <div className="flex gap-[20px] px-[20px] py-[10px] md:py-[15px] select-none">
+            <div className="overflow-hidden bg-[#101d31]">
+                <div className="max-w-[1890px] mx-auto overflow-hidden" ref={emblaRef}>
+                    <div className="flex gap-[20px] px-[20px] py-[10px] md:py-[15px] select-none"  >
                         {currentCategory &&
                             currentCategory.subcategories.map((subcategory) => (
                                 <Link
