@@ -1,13 +1,13 @@
 "use client";
 
-import Pagination from "@/app/staff/components/Paginations";
-import { INewsObject } from "@/app/_utils/types";
-import { getDateString } from "@/app/_utils/utilis";
 import { getCookie } from "cookies-next";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Pagination from "../../components/Paginations";
+import { INewsObject } from "@/app/_utils/types";
 import Loader from "@/app/_components/Loader";
+import { getDateString } from "@/app/_utils/utilis";
 
 export default function News() {
     const [products, setProducts] = useState<INewsObject | null>(null);
@@ -15,129 +15,183 @@ export default function News() {
     const [page, setPage] = useState(1);
     const [deleteWindow, setDeleteWindow] = useState<number | null>(null);
     const [isLoading, setIsLoading] = useState(false);
+
     const token = getCookie("access_token");
 
     const getProducts = async (pageCount: number) => {
         try {
             const params = new URLSearchParams();
-
             if (pageCount) params.append("page", String(pageCount));
 
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API}/news/?${params.toString()}`, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API}/news/?${params.toString()}`);
 
             if (!res.ok) {
                 setProducts(null);
                 setError(true);
                 return;
             }
-            const data = await res.json();
-            console.log(data);
 
+            const data = await res.json();
             setProducts(data);
-        } catch (error) {
-            throw error;
+        } catch (e) {
+            throw e;
         }
     };
 
     const deleteProduct = async (id: number) => {
         try {
             setIsLoading(true);
+
             await fetch(`${process.env.NEXT_PUBLIC_API}/news/${id}/`, {
                 method: "DELETE",
                 headers: {
-                    "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
                 },
             });
+
             setIsLoading(false);
+            setDeleteWindow(null);
             getProducts(page);
-        } catch (error) {
-            throw error;
+        } catch (e) {
+            throw e;
         }
     };
 
     useEffect(() => {
-        const getData = async () => {
-            await getProducts(page);
-        };
-        getData();
+        getProducts(page);
     }, [page]);
 
     return (
-        <div>
+        <div className="min-h-screen bg-[#f0f4f8]">
+            {/* LOADER */}
             {isLoading && (
-                <div className="fixed inset-0 z-999 flex items-center justify-center">
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/60 backdrop-blur-sm">
                     <Loader />
                 </div>
             )}
-            <div className="container">
-                <div className="py-[25]">
+
+            <div className="">
+                {/* HEADER ROW */}
+                <div className="flex justify-between items-center mb-8">
+                    <div>
+                        <h1 className="text-2xl font-semibold" style={{ color: "#1e3a5f" }}>
+                            Новости
+                        </h1>
+                        <p className="text-sm mt-0.5" style={{ color: "#64748b" }}>
+                            {products?.results?.length
+                                ? `${products.results.length} новостей на странице`
+                                : "Управление медиафайлами"}
+                        </p>
+                    </div>
                     <Link
-                        href={"news/create"}
-                        className="block ml-auto w-max py-[10px] px-[10px] text-[#29547F] bg-white"
+                        className="flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-white rounded-xl transition-all"
+                        href={"news/create/"}
+                        style={{
+                            background: "linear-gradient(135deg, #1a3a6b 0%, #1e4a8a 100%)",
+                            border: "none",
+                            cursor: "pointer",
+                            boxShadow: "0 2px 10px rgba(26,58,107,0.25)",
+                        }}
+                        onMouseEnter={(e) => {
+                            (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 4px 16px rgba(26,58,107,0.35)";
+                            (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-1px)";
+                        }}
+                        onMouseLeave={(e) => {
+                            (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 2px 10px rgba(26,58,107,0.25)";
+                            (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0)";
+                        }}
                     >
-                        Добавить Новость
+                        <span style={{ fontSize: "18px", lineHeight: 1 }}>+</span>
+                        Добавить новость
                     </Link>
                 </div>
-                <div className="w-full flex flex-col gap-[20px] py-[25px]">
-                    {error && <div>Данные не найдены</div>}
-                    {products &&
-                        products.results?.map((product) => (
-                            <div
-                                key={product.id}
-                                className="w-full flex flex-col gap-[20px] bg-white p-[20px] text-[#29547F]"
-                            >
-                                <div className="flex flex-row justify-between items-end gap-[10px] ">
-                                    <div className="flex flex-col gap-[5px]">
-                                        <Image
-                                            unoptimized={process.env.NEXT_PUBLIC_DEV === "dev"}
-                                            width={0}
-                                            height={0}
-                                            src={product.preview}
-                                            alt=""
-                                            className="w-[100px] h-[50px] object-cover mb-[10px]"
-                                        />
-                                        <h3>Название: {product.title}</h3>
-                                        <h3>Дата создания: {getDateString(product.created_at)}</h3>
-                                    </div>
-                                </div>
-                                <div className="flex flex-row gap-[20px]">
+
+                {/* ERROR */}
+                {error && (
+                    <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-600">
+                        Данные не найдены
+                    </div>
+                )}
+
+                {/* GRID */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {products?.results?.map((product) => (
+                        <div
+                            key={product.id}
+                            className="group bg-white border border-slate-200 rounded-2xl overflow-hidden
+                            shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                        >
+                            {/* TOP ACCENT */}
+                            <div className="h-1 w-full bg-gradient-to-r from-[#1a3a6b] to-[#3b82f6]" />
+
+                            {/* IMAGE */}
+                            <div className="relative w-full h-44 bg-slate-100">
+                                <Image
+                                    unoptimized={process.env.NEXT_PUBLIC_DEV === "dev"}
+                                    fill
+                                    src={product.preview}
+                                    alt=""
+                                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                />
+                            </div>
+
+                            {/* CONTENT */}
+                            <div className="p-4">
+                                <h3 className="text-slate-800 font-semibold text-sm line-clamp-2">{product.title}</h3>
+
+                                <p className="text-xs text-slate-500 mt-1">{getDateString(product.created_at)}</p>
+
+                                {/* ACTIONS */}
+                                <div className="flex gap-2 mt-4">
                                     <button
                                         onClick={() => setDeleteWindow(product.id)}
-                                        className="w-max py-[5px] px-[20px] text-white bg-red-500 cursor-pointer"
+                                        className="flex-1 px-3 py-2 text-xs font-medium rounded-lg
+                                        bg-red-50 text-red-600 border border-red-100
+                                        hover:bg-red-100 transition"
                                     >
                                         Удалить
                                     </button>
+
                                     <Link
                                         href={`news/edit/${product.id}`}
-                                        className="w-max py-[5px] px-[20px] text-white bg-[#29547F]"
+                                        className="flex-1 px-3 py-2 text-xs font-medium rounded-lg
+                                        text-center text-white
+                                        bg-gradient-to-r from-[#1a3a6b] to-[#1e4a8a]
+                                        hover:opacity-90 transition"
                                     >
                                         Изменить
                                     </Link>
                                 </div>
-                                {deleteWindow == product.id && (
-                                    <div className="flex flex-row gap-[20px]">
-                                        <span
-                                            className="border border-gray-400 py-[5px] cursor-pointer w-[100px] text-center"
-                                            onClick={() => deleteProduct(product.id)}
-                                        >
-                                            Да
-                                        </span>
-                                        <span
-                                            className="border border-gray-400 py-[5px] cursor-pointer w-[100px] text-center"
-                                            onClick={() => setDeleteWindow(null)}
-                                        >
-                                            Нет
-                                        </span>
+
+                                {/* DELETE CONFIRM */}
+                                {deleteWindow === product.id && (
+                                    <div className="mt-3 p-3 rounded-xl bg-red-50 border border-red-200">
+                                        <p className="text-xs text-red-600 mb-2">Удалить эту новость?</p>
+
+                                        <div className="flex gap-2">
+                                            <button
+                                                onClick={() => deleteProduct(product.id)}
+                                                className="flex-1 py-1.5 text-xs text-white rounded-lg bg-red-500 hover:bg-red-600"
+                                            >
+                                                Да
+                                            </button>
+
+                                            <button
+                                                onClick={() => setDeleteWindow(null)}
+                                                className="flex-1 py-1.5 text-xs border border-slate-300 rounded-lg hover:bg-slate-100"
+                                            >
+                                                Нет
+                                            </button>
+                                        </div>
                                     </div>
                                 )}
                             </div>
-                        ))}
+                        </div>
+                    ))}
+                </div>
+
+                {/* PAGINATION */}
+                <div className="mt-10">
                     <Pagination page={page} setPage={setPage} />
                 </div>
             </div>

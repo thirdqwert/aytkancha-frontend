@@ -135,7 +135,7 @@ export default function TipTap({ setContent, content }: IProps) {
 
         editorProps: {
             attributes: {
-                class: "min-h-[700px] border border-gray-400 p-[20px] tiptap max-w-none [&_ol]:list-decimal [&_ul]:list-disc",
+                class: "min-h-[700px] border border-gray-300 rounded-md focus:border-blue-500 focus:ring-0 outline-none cursor-pointer p-[20px] tiptap max-w-none [&_ol]:list-decimal [&_ul]:list-disc",
             },
         },
         content: content,
@@ -151,13 +151,12 @@ export default function TipTap({ setContent, content }: IProps) {
     return (
         editor && (
             <div className="tiptap py-[20px]">
-                <p className="pb-[10px]">Контент</p>
                 <MenuBar editor={editor} />
                 <EditorContent editor={editor} />
                 <button
                     type="button"
                     onClick={saveHtml}
-                    className="p-[10px] border border-gray-400 my-[20px] cursor-pointer"
+                    className="p-[10px] mt-[20px] border text-slate-700 border-gray-300 rounded-md focus:border-blue-500 focus:ring-0 outline-none cursor-pointer"
                 >
                     Сохранить
                 </button>

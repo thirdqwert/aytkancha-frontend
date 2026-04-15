@@ -11,6 +11,7 @@
     --color-secondery: #385cb7;
     --color-third: #1f1d1d;
     --color-fourth: #495057;
+    --font-golostext: "GolosText";
 }
 
 @layer base {
@@ -86,10 +87,19 @@ body {
     background: white;
     color: #1e293b;
 }
+
 .tiptap_button {
-    border: 1px #99a1af solid;
-    padding: 5px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    outline: none;
     cursor: pointer;
+    padding: 5px 10px;
+    color: oklch(37.2% 0.044 257.287);
+}
+
+.tiptap_button:focus {
+    border-color: #3b82f6;
+    box-shadow: none;
 }
 .tiptap blockquote::before,
 .tiptap blockquote::after {
@@ -149,7 +159,6 @@ body {
     align-items: center;
     gap: 16px;
 }
-
 
 .tiptap .play-btn {
     position: relative;

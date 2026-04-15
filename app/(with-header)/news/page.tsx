@@ -1,10 +1,8 @@
-import { getNews } from "../_utils/utilis";
-import { INewsObject } from "../_utils/types";
-import CardList from "../_components/CardList";
-import InfiniteScroll from "../_components/InfiniteScroll";
+import { getNews } from "@/app/_utils/utilis";
+import { INewsObject } from "@/app/_utils/types";
+import CardList from "@/app/_components/CardList";
+import InfiniteScroll from "@/app/_components/InfiniteScroll";
 import { Metadata } from "next";
-import Footer from "../_components/Footer";
-import Header from "../_components/Header";
 
 export const metadata: Metadata = {
     title: "O'zbekistonning barcha yangiliklari",
@@ -42,15 +40,12 @@ export default async function News() {
     if (news.results.length == 0)
         return (
             <>
-                <Header />
                 <main className="py-[110px] min-h-screen"></main>
-                <Footer />
             </>
         );
 
     return (
         <>
-            <Header />
             <main className="py-[15px] min-h-screen">
                 <div className="container">
                     <CardList list={news.results} />
@@ -58,7 +53,6 @@ export default async function News() {
                     <InfiniteScroll params={{}} />
                 </div>
             </main>
-            <Footer />
         </>
     );
 }

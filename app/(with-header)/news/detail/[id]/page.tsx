@@ -4,8 +4,6 @@ import Link from "next/link";
 import DetailContent from "../_components/DetailContent";
 import { Metadata } from "next";
 import { INews } from "@/app/_utils/types";
-import Header from "@/app/_components/Header";
-import Footer from "@/app/_components/Footer";
 import HorizontalLineCard from "@/app/_components/HorizontalLineCard";
 
 interface IProps {
@@ -114,8 +112,7 @@ export default async function NewsDetail({ params }: IProps) {
                     __html: JSON.stringify(jsonLd),
                 }}
             />
-            <Header />
-            <main className="py-[30px] ">
+            <main className="py-[30px] min-h-screen">
                 <div className="container">
                     <div className="flex flex-col 7xl:flex-row gap-[30px]">
                         <article className="pb-[70px] md:pb-[100px] xl:pb-[200px] w-full 7xl:max-w-[1070px]">
@@ -163,7 +160,6 @@ export default async function NewsDetail({ params }: IProps) {
                     </div>
                 </div>
             </main>
-            <Footer />
         </>
     );
 }

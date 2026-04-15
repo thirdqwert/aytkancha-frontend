@@ -1,11 +1,9 @@
 import Link from "next/link";
-import Header from "../_components/Header";
-import Footer from "../_components/Footer";
 import Image from "next/image";
-import telegramIcon from "../../public/images/telegramBlack.svg";
-import instagramBlack from "../../public/images/instagramBlack.svg";
-import facebookBlack from "../../public/images/facebookBlack.svg";
-import youtubeBlack from "../../public/images/youtubeBlack.svg";
+import telegramIcon from "@/public/images/telegramBlack.svg";
+import instagramBlack from "@/public/images/instagramBlack.svg";
+import facebookBlack from "@/public/images/facebookBlack.svg";
+import youtubeBlack from "@/public/images/youtubeBlack.svg";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,7 +12,8 @@ export const metadata: Metadata = {
         template: "%s | Aytkancha",
         default: "Aytkancha — O'zbekiston va dunyo yangiliklari",
     },
-    description: "Aytkancha — O'zbekistonning dolzarb yangiliklari: siyosat, sport, iqtisodiyot, texnologiya va madaniyat.",
+    description:
+        "Aytkancha — O'zbekistonning dolzarb yangiliklari: siyosat, sport, iqtisodiyot, texnologiya va madaniyat.",
 
     openGraph: {
         siteName: "Aytkancha",
@@ -40,7 +39,6 @@ export const metadata: Metadata = {
 export default async function Contacts() {
     return (
         <>
-            <Header />
             <main className="py-[50px] min-h-[calc(100vh-328px)]">
                 <div className="container">
                     <div className="flex flex-col items-center 2xl:items-start 2xl:flex-row justify-center gap-[40px] md:gap-[70px] 2xl:gap-[90px]">
@@ -61,7 +59,9 @@ export default async function Contacts() {
                                     </span>
                                 </div>
                                 <div className="flex flex-col gap-[5px]">
-                                    <span className="block text-[17px] md:text-[24px] font-medium text-[#818a93]">Telefon raqami</span>
+                                    <span className="block text-[17px] md:text-[24px] font-medium text-[#818a93]">
+                                        Telefon raqami
+                                    </span>
                                     <span className="block text-primery text-[19px] font-medium">(32)333-33-44</span>
                                 </div>
                             </div>
@@ -139,7 +139,6 @@ export default async function Contacts() {
                     </div>
                 </div>
             </main>
-            <Footer />
         </>
     );
 }

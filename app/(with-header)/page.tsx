@@ -1,18 +1,16 @@
 import { Metadata } from "next";
-import { INews } from "./_utils/types";
-import { getDateString, getNewsAdmin } from "./_utils/utilis";
-import HeadingLine from "./_components/ui/HeadingLine";
-import ReelsSwiper from "./_components/ReelsSwiper";
-import BigCard from "./_components/BigCard";
-import HorizontalCard from "./_components/HorizontalCard";
-import ImageCard from "./_components/ImageCard";
-import Header from "./_components/Header";
-import Footer from "./_components/Footer";
+import { INews } from "@/app/_utils/types";
+import { getDateString, getNewsAdmin } from "@/app/_utils/utilis";
+import HeadingLine from "@/app/_components/ui/HeadingLine";
+import ReelsSwiper from "@/app/_components/ReelsSwiper";
+import BigCard from "@/app/_components/BigCard";
+import HorizontalCard from "@/app/_components/HorizontalCard";
+import ImageCard from "@/app/_components/ImageCard";
 import Link from "next/link";
 import Image from "next/image";
-import VidsList from "./_components/VidsList";
-import Card from "./_components/Card";
-import HorizontalLineCard from "./_components/HorizontalLineCard";
+import VidsList from "@/app/_components/VidsList";
+import Card from "@/app/_components/Card";
+import HorizontalLineCard from "@/app/_components/HorizontalLineCard";
 
 export const metadata: Metadata = {
     title: "Bosh sahifa — O'zbekistonning so'nggi yangiliklari",
@@ -195,7 +193,6 @@ export default async function Home() {
 
     return (
         <>
-            <Header />
             <main className="pt-[30px] pb-[90px] 2xl:pb-[110px] min-h-screen">
                 <section>
                     <div className="container">
@@ -442,7 +439,6 @@ export default async function Home() {
                     </div>
                 </section>
             </main>
-            <Footer />
         </>
     );
 }

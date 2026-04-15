@@ -3,8 +3,6 @@ import CardList from "@/app/_components/CardList";
 import CatSub from "@/app/_components/CatSub";
 import InfiniteScroll from "@/app/_components/InfiniteScroll";
 import { Metadata } from "next";
-import Header from "@/app/_components/Header";
-import Footer from "@/app/_components/Footer";
 
 interface IProps {
     params: {
@@ -45,18 +43,15 @@ export default async function NewsCategory({ params }: IProps) {
     if (news.results.length == 0)
         return (
             <>
-                <Header />
                 <CatSub params={{ categoryBy: category }} />
                 <main className="py-[35px] min-h-screen">
                     <div className="container"></div>
                 </main>
-                <Footer />
             </>
         );
 
     return (
         <>
-            <Header />
             <CatSub params={{ categoryBy: category }} />
             <main className="py-[35px] min-h-screen">
                 <div className="container">
@@ -65,7 +60,6 @@ export default async function NewsCategory({ params }: IProps) {
                     <InfiniteScroll params={{ category: category }} />
                 </div>
             </main>
-            <Footer />
         </>
     );
 }
